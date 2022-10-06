@@ -10,7 +10,7 @@ const shipping=require('./routes/Shipping');
 const connection=require('./controller/Auth');
 connection();//database;
 app.use(cors());
-app.use(express.static(__dirname +'/dist/malacko/public'));
+app.use('/assets', express.static(path.join(__dirname, 'public')))
 app.use("/assets", express.static(__dirname + "/assets"));
 app.use(express.json());
 
