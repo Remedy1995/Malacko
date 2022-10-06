@@ -7,10 +7,17 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "heroku-postbuild": "ng build — prod"
+    "heroku-postbuild": "ng build — prod",
+    "postinstall": "ng build --aot --prod"
   },
+  "engines": { 
+    "node": "16.17.0", 
+    "npm": "8.15.0"
+    },
   "private": true,
   "dependencies": {
+    "@angular/cli": "^14.2.5",
+    "@angular/compiler-cli": "^14.2.5",
     "@agm/core": "^3.0.0-beta.0",
     "@angular/animations": "^14.2.0",
     "@angular/common": "^14.2.0",
@@ -35,7 +42,8 @@
     "rxjs": "~7.5.0",
     "spinners-angular": "^0.0.5",
     "sweetalert2": "^11.4.35",
-    "zone.js": "~0.11.4"
+    "zone.js": "~0.11.4",
+    "typescript": "~4.7.2"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^14.2.2",
