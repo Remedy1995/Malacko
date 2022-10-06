@@ -4,7 +4,7 @@ const path = require('path');
 const cors=require('cors');
 const bodyparser = require('body-parser');
 const app = express();
-const port = 3000;
+const port = process.env.PORT||3000;
 const mapping=require('./routes/Map')
 const shipping=require('./routes/Shipping');
 const connection=require('./controller/Auth');
@@ -21,7 +21,7 @@ app.use('/shipping',shipping);
 app.use('/mapping',mapping)
 app.use(bodyparser.urlencoded({extended:true}));
 app.get('/geocode', (req,res) => {})
-app.listen(process.env.PORT|| port, () => {
+app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
 })
 
