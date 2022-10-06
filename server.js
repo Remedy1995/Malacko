@@ -15,9 +15,8 @@ app.use(express.json());
 // app.get('/*', function(req,res) {
 // res.sendFile(path.join(__dirname+
 // '/dist/malacko/index.html'));});
-app.use(express.static('build'));
-app.get('*', function (req, res) {
-  res.sendFile('index.html');
+app.get('/', function(req, res) {
+  res.sendFile('index.html', { root: 'Malacko/dist/malacko'});
 });
 // app.use(express.static(path.join(__dirname, 'dist','malacko')));
 // res.sendFile(path.join(__dirname,'dist','malacko','index.html'));
