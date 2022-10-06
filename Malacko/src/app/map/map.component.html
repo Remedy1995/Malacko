@@ -1,0 +1,20 @@
+<form [formGroup]="mapdata">
+<input type="text" formControlName="geolocation">
+<button type="button" value="submit" (click)="submit()">Submit</button>
+</form>
+  
+
+<div><h1>Our country is {{country}}</h1></div>
+<div><h1>Our latitude is {{getlatitude}}</h1></div>
+<div><h1>Our  longitude is {{getlongitude}}</h1></div>
+
+
+<div class="container" style="background-color:black;height:500px;width: 500px;">
+    <div id="map" class="mapstyle"
+    leaflet
+    (leafletMapReady)="onMapReady($event)"
+    [leafletOptions]="mapOptions">
+
+</div>
+
+</div>
