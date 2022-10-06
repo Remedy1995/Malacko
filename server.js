@@ -11,7 +11,7 @@ const connection=require('./controller/Auth');
 connection();//database;
 app.use(cors());
 app.use(express.json());
-app.use('/static', express.static(path.join(__dirname, 'public')))
+app.use('/static', express.static(path.join(__dirname, '/dist/public')))
 app.use(express.static(__dirname + '/dist/malacko'));
 app.get('/*', function(req,res) {
 res.sendFile(path.join(__dirname+
