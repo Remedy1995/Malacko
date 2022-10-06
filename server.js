@@ -11,13 +11,10 @@ const connection=require('./controller/Auth');
 connection();//database;
 app.use(cors());
 app.use(express.json());
-// app.use(express.static(__dirname + '/dist/malacko'));
-// app.get('/*', function(req,res) {
-// res.sendFile(path.join(__dirname+
-// '/dist/malacko/index.html'));});
-app.get('/', function(req, res) {
-  res.sendFile('index.html', { root: 'Malacko/dist/malacko'});
-});
+app.use(express.static(__dirname + '/dist/malacko'));
+app.get('/*', function(req,res) {
+res.sendFile(path.join(__dirname+
+'/dist/malacko/index.html'));});
 // app.use(express.static(path.join(__dirname, 'dist','malacko')));
 // res.sendFile(path.join(__dirname,'dist','malacko','index.html'));
 app.use('/shipping',shipping);
