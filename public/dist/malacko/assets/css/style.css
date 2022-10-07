@@ -17,6 +17,10 @@ body {
 html {
   scroll-behavior: smooth;
 }
+.swal2-popup{
+    width: 350px;
+    font-size: 12px;
+}
 body a {
     text-decoration: none;
     transition: 0.5s all;
@@ -1865,6 +1869,12 @@ div.swal2-container.swal2-top-end.swal2-backdrop-show{
 }
 
 div.swal2-popup.swal2-modal.swal2-icon-success.swal2-show{
+	display: grid;
+    width: 400px;
+    font-size: 11px;
+}
+
+div.swal2-popup.swal2-modal.swal2-icon-error.swal2-show{
 	display: grid;
     width: 400px;
     font-size: 11px;

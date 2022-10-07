@@ -10,6 +10,17 @@ const shipping=require('./routes/Shipping');
 const connection=require('./controller/Auth');
 connection();//database;
 app.use(cors());
+// const { MongoClient, ServerApiVersion } = require('mongodb');
+// const uri = "mongodb+srv://Remedy:Remedy1995@cluster0.swuc4.mongodb.net/?retryWrites=true&w=majority";
+// const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
+// client.connect(err => {
+//   console.log(err)
+//   const collection = client.db("test").collection("devices");
+//   // perform actions on the collection object
+//   client.close();
+// });
+
+
 // app.use('/assets', express.static(path.join(__dirname, '/dist/malacko/public')))
 // app.use("/assets", express.static(__dirname + "/assets"));
 app.use(express.json());
