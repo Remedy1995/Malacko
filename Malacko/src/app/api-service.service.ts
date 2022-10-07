@@ -6,22 +6,21 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class ApiServiceService {
-  env=environment.apiURL;
-  geturl="http://127.0.0.1:3000/geocode";
-  getdata="http://127.0.0.1:3000/mapping/mapping";
-  shippingorder="http://127.0.0.1:3000/shipping/createshipping";
-  consign="http://127.0.0.1:3000/shipping/consignment";
-  viewmap="http://127.0.0.1:3000/shipping/viewmap";
+  env=environment.apiURL;//get our environment variables
+  geturl=`${this.env}/geocode`;
+  getdata=`${this.env}/mapping/mapping`;
+  shippingorder=`${this.env}/shipping/createshipping`;
+  consign=`${this.env}/shipping/consignment`;
+  viewmap=`${this.env}/shipping/viewmap`;
   constructor(private _http:HttpClient) { }
- 
+
   postData(data:any):Observable<any>{
-    console.log(data)
-    console.log(this.getdata)
     return this._http.post(`${this.getdata}`,data);
    }
      
   getGeocoding():Observable<any>{
    return this._http.get(`${this.geturl}`);
+   
   }
 
   createShipping(data:any):Observable<any>{
@@ -37,3 +36,4 @@ export class ApiServiceService {
     return this._http.post(`${this.viewmap}`,data);
   }
 }
+
