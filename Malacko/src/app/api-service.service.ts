@@ -12,6 +12,7 @@ export class ApiServiceService {
   shippingorder=`${this.env}/shipping/createshipping`;
   consign=`${this.env}/shipping/consignment`;
   viewmap=`${this.env}/shipping/viewmap`;
+  sendcontact=`${this.env}/contactUsEmail/contactUsEmail`;
   constructor(private _http:HttpClient) { }
 
   postData(data:any):Observable<any>{
@@ -22,7 +23,9 @@ export class ApiServiceService {
    return this._http.get(`${this.geturl}`);
    
   }
-
+  contactEmail(data:any):Observable<any>{
+    return this._http.post(`${this.sendcontact}`,data);
+  }
   createShipping(data:any):Observable<any>{
     return this._http.post(`${this.shippingorder}`,data)
   }

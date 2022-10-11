@@ -1,9 +1,7 @@
 const express=require('express');
 const router=express.Router();
-const getallUsers=require('../controller/User');
 const cors=require('cors');
+const contactUsEmail=require('../controller/email');
 router.use(cors());
-router.get('/getallusers',getallUsers.allUsers);
-
-
+router.post('/contactUsEmail',contactUsEmail.contactUsEmail);
 module.exports=router;

@@ -36,13 +36,15 @@ export class ViewmapComponent implements OnInit {
       //set results in cookie to display map
       this.cookie.set('latitude',data.message[0].country_latitude);
       this.cookie.set('longitude',data.message[0].country_longitude)
+      this.cookie.set('destination',data.message[0].destination);
+      this.cookie.set('description',data.message[0].itemsDescription);
       this.cookie.set('country',data.message[0].country);
-      this.cookie.set('description',data.message[0].itemsDescription)
      },
       error:(error)=>
       {this.notification=error.error.message,
         setTimeout(()=>{
           this.showspinner = false;
+          this.consignmentInformation.reset()
           Swal.fire({  
             position: 'top-end',  
             icon: 'success',  
@@ -54,14 +56,17 @@ export class ViewmapComponent implements OnInit {
      complete:()=>console.log("completed"),
      
      })
-     this.consignmentInformation.reset()
+   
     }
     else{
-      console.log('no data input')
+      Swal.fire({  
+        position: 'top-end',  
+        icon: 'error',  
+        title:'Field cannot be empty',  
+        showConfirmButton: true 
+      })
     }
   
   }
-  public redirect(){
-    
-  }
+ 
 }

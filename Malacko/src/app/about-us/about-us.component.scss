@@ -1,0 +1,38 @@
+.head-style{
+    text-transform: uppercase;
+    font-size: 30px;
+    letter-spacing: 1px;
+    font-weight: 600;
+    position: relative;
+    top: 30px;
+}
+.growth{
+    text-align: center;
+    position: relative;
+    top: 20px;
+    color: rgb(255,255,255);
+}
+
+.history{
+    color: rgba(255,255,255,0.9);
+    position: relative;
+    left: 30px;
+}
+
+ @media (max-width: 736px){ 
+  h3.heading.text-center.mb-5.head-style{
+        text-transform: uppercase;
+        font-size: 20px;
+        letter-spacing: 1px;
+        font-weight: 600;
+        position: relative;
+        top: 30px;
+    }
+    .history{
+     margin-left: 0px;
+    text-align: justify;
+    letter-spacing: -1px;
+    color: rgba(255,255,255,0.9);
+    font-size: 14px;
+    }
+}

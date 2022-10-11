@@ -9,10 +9,10 @@ exports.createShippingOrder=async (req,res,next)=>{
    ShippingOrder.find({'email' : new RegExp(email, 'i')}).then(data=>{
    if(data.length === 0){
       //if email does not exist record new data;
-           const country=req.body.country;
+           const country=req.body.country.replace(/[^a-zA-Z ]/g, "");;
+           const destination=req.body.destination.replace(/[^a-zA-Z ]/g, "");
            const data=[];
-           const formatted=country.replace(/[^a-zA-Z ]/g, "");
-           axios.get(process.env.MAP_URL +`${formatted}`)
+           axios.get(process.env.MAP_URL +`${destination}`)
            .then(response => {
            data.push(response.data);
            data.forEach(async number=>{
@@ -22,20 +22,20 @@ exports.createShippingOrder=async (req,res,next)=>{
            const longitude=geodata['lng'];//this generates the longitude of the location
            const value=consign.generate();//this generates the consignment number
            const createShipping=new ShippingOrder({
-           country:location,
+           destination:location,
            country_latitude:latitude,
            country_longitude:longitude,
            email:email,
-           ItemName:req.body.ItemName,
-           itemsDescription:req.body.itemsDescription,
-           orderDate:req.body.orderDate,
-           deliveryDate:req.body.deliveryDate,
+           ItemName:req.body.ItemName.replace(/[^a-zA-Z ]/g, ""),
+           itemsDescription:req.body.itemsDescription.replace(/[^a-zA-Z ]/g, ""),
+           orderDate:Date.now(),
+           deliveryDate:Date.now(),
            consignment_number:value,
-           days:req.body.days
+           country:country
          })
          sendEmail.sendMail(createShipping);//send email
         await createShipping.save().then(docs=>{
-        res.status(200).json({message:"Shipping Order has been created successfully and your tracking id "
+        res.status(200).json({message:"Shipping Order has been created successfully and your tracking id is "
         +docs.consignment_number,docs});
         //send emailinformation pass information to our email    
       }).catch(error=>{
@@ -48,8 +48,8 @@ exports.createShippingOrder=async (req,res,next)=>{
       //if email exists update the existing data;
          const country=req.body.country;
          const data=[];
-         const formatted=country.replace(/[^a-zA-Z ]/g, "");
-         axios.get(process.env.MAP_URL +`${formatted}`)
+         const destination=req.body.destination.replace(/[^a-zA-Z ]/g, "");
+         axios.get(process.env.MAP_URL +`${destination}`)
          .then(response => {
          data.push(response.data);
          data.forEach(async number=>{
@@ -59,9 +59,9 @@ exports.createShippingOrder=async (req,res,next)=>{
          const longitude=geodata['lng'];//this generates the longitude of the location
          const value=consign.generate();
       ShippingOrder.updateMany({email:req.body.email},
-         {country:location, country_latitude:latitude,country_longitude:longitude,ItemName:req.body.ItemName,
-         itemsDescription:req.body.itemsDescription,orderDate:req.body.orderDate,deliveryDate:req.body.deliveryDate,
-         consignment_number:value, days:req.body.days},
+         {country:country, country_latitude:latitude,country_longitude:longitude,ItemName:req.body.ItemName,
+         itemsDescription:req.body.itemsDescription,orderDate:Date.now(),deliveryDate:Date.now(),
+         consignment_number:value,destination:destination},
           function(err, docs){
     if(err) res.json(err);
     else res.status(200).json({message:"Shipping Order has been created successfully and your tracking id "+value});
@@ -102,7 +102,7 @@ catch(error){
 //
 exports.viewCurrentMap=(req,res,next)=>{
 //let view tracking of user using the consignment number
-const consignment_number=req.body.consignment_number;
+const consignment_number=req.body.consignment_number.replace(/[^a-zA-Z ]/g, "");
 ShippingOrder.find({'consignment_number' : new RegExp(consignment_number, 'i')}).then(data=>{
  if(data.length===0){
    res.status(500).json({

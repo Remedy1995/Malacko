@@ -13,7 +13,11 @@ body {
     background: #fff;
 	font-family: 'Poppins', sans-serif;
 }
-
+div.row.stat-grids{
+	/* background: #e9edf1 url(../images/banner.jpg) fixed; */
+	background: #FD8C3E url(../images/global.jpg) no-repeat fixed 40% center;
+    align-content: center;
+} 
 html {
   scroll-behavior: smooth;
 }
@@ -36,6 +40,8 @@ body a {
 body img {
     max-width: 100%;
 }
+
+
 
 a:hover {
     text-decoration: none;
@@ -1418,7 +1424,13 @@ ul.team-social li a  span.fa{
 	}
 	.about h3 {
 		font-size: 22px;
+		text-align: center;
 	}
+	.about h3 :hover{
+		font-size: 2px;
+		background-color: red;
+	}
+
 	h4.heading {
 		font-size: 27px;
 	}

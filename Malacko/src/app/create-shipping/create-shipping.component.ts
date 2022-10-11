@@ -9,26 +9,22 @@ import Swal from 'sweetalert2';
   styleUrls: ['./create-shipping.component.scss']
 })
 export class CreateShippingComponent implements OnInit {
-  typeSelected: string;
   showspinner:boolean=false;
 
   notification:any;
   constructor(private service:ApiServiceService,private spinner: NgxSpinnerService) {
-  this.typeSelected='ball-fusion';
    }
   ngOnInit(): void {
    
   
   }
-  //show spinner when you click on create button
+
 shippingInformation=new FormGroup({
-  country:new FormControl('',Validators.required),
-  // country_latitude:new FormControl('',Validators.required),
-  // country_longitude:new FormControl('',Validators.required),
+  destination:new FormControl('',Validators.required),
   ItemName:new FormControl('',Validators.required),
-  email:new FormControl('',Validators.required),
-  days:new FormControl('',Validators.required),
-  itemsDescription:new FormControl('',Validators.required)
+  email:new FormControl('',[Validators.required,Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]),
+  itemsDescription:new FormControl('',Validators.required),
+  country:new FormControl('',Validators.required),
 })
 
 
@@ -55,6 +51,7 @@ submit(){
     }
   },
   error:(error)=>{
+    console.log(error.statusText)
     if(error.statusText==="Unknown Error"){
       this.notification="Sorry an error occured please try again";
       setTimeout(()=>{
@@ -66,7 +63,7 @@ submit(){
           showConfirmButton: true 
         }),
         this.shippingInformation.reset();
-      },5000)
+      },1000)
      
     }
   
@@ -77,7 +74,12 @@ submit(){
   }
   
   else{
-    console.log('no data input')
+    Swal.fire({  
+      position: 'top-end',  
+      icon: 'error',  
+      title:'Incorrect email provided or fields cannot be empty',  
+      showConfirmButton: true 
+    })
   }
 
 }
