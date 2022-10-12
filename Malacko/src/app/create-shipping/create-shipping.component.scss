@@ -7,3 +7,10 @@ div.main_grid_contact{
     position: relative;
 }
 
+@media (max-width:780px){
+div.main_grid_contact{
+    position: relative;
+    left: -2px;
+}
+
+}

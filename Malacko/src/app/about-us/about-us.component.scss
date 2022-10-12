@@ -29,10 +29,22 @@
         top: 30px;
     }
     .history{
-     margin-left: 0px;
-    text-align: justify;
-    letter-spacing: -1px;
-    color: rgba(255,255,255,0.9);
-    font-size: 14px;
+        color: rgba(255, 255, 255, 0.9);
+        font-size: 15px;
+        position: relative;
+        padding: 0px 20px 0px 11px;
+        left: 2px;
+    }
+
+    .growth{
+        position: relative;
+        top: 20px;
+        color: rgb(255, 255, 255);
+        margin-left: -33px;
+    }
+    .stats-right{
+        position: relative;
+        top: -20px;
+        left: 20px;
     }
 }

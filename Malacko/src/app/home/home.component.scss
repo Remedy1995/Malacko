@@ -33,7 +33,7 @@ h4.heading.mb-3.dare{
 h3.challenge{
     position: relative;
     bottom: 150px;
-    margin: 10px;
+    margin: 7px;
     line-height: 50px;
     white-space: pre;
     font-size: 30px;
@@ -42,12 +42,15 @@ h3.challenge{
 }
 .extensive{
     position: relative;
-    left: 0px;
-    height: 0px;
+    left: 10px;
+    letter-spacing: -0.2px;
 }
 .stuffs{
     position: relative;
     left: 32px;
+    top: -140px;
 }
-
+div.row.stat-grids {
+   height: 650px;
+}
 }
