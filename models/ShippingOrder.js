@@ -9,8 +9,11 @@ const ShippingOrderSchema={
    orderDate:String,
    deliveryDate:String,
    consignment_number:String,
-   country:String
-
+   country:String,
+   trackingstatus:String,
+   quantity:String,
+   remarks:String,
+   
 }
 const ShippingOrder=mongoose.model("shippinginformation",ShippingOrderSchema);
 module.exports=ShippingOrder;

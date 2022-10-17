@@ -1,20 +1,32 @@
-<form [formGroup]="mapdata">
-<input type="text" formControlName="geolocation">
-<button type="button" value="submit" (click)="submit()">Submit</button>
-</form>
-  
-
-<div><h1>Our country is {{country}}</h1></div>
-<div><h1>Our latitude is {{getlatitude}}</h1></div>
-<div><h1>Our  longitude is {{getlongitude}}</h1></div>
 
 
-<div class="container" style="background-color:black;height:500px;width: 500px;">
-    <div id="map" class="mapstyle"
-    leaflet
-    (leafletMapReady)="onMapReady($event)"
-    [leafletOptions]="mapOptions">
+<input type="text" placeholder="input text" [(ngModel)]="filterText" />
 
-</div>
+{{filterText}}
+<table class="table">
+    <thead>
+    <tr>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>Email Address</th>
+    <th>Country</th>
+    <th>phone</th>
+    </tr>
+    </thead>
+           <tbody *ngIf="!showText;else other">
+          
+            <tr *ngFor="let persons of person">
+            <td>{{persons.first_name}}</td>
+            <td>{{persons.last_name}}</td>
+            <td>{{persons.email}}</td>
+            <td>{{persons.gender}}</td>
+            <td>{{persons.ip_address}}</td>
+          
+            </tr>
+            <tr>
+        </tbody>
+      <ng-template #other>
+      No information available
+      </ng-template>
+</table>
 
-</div>

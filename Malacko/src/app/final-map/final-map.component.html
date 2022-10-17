@@ -21,23 +21,49 @@
 				<h3 class="text-capitalize mb-2">Tracking Information</h3>
                    <div class="row">
 					<div class="col-lg-12">
+						<div class="stat">
+							<span class="fa fa-home" aria-hidden="true" ng-model="gettracking"  [ngStyle]="gettracking==='Checked'?{'color': '#00BCD4'}:{'color': '#817272'}" >&nbsp;&nbsp;{{gettracking}}</span>
+							&nbsp;	&nbsp;<span class="fa fa-cogs" aria-hidden="true" [ngStyle]="gettracking==='Processing'?{'color': '#00BCD4'}:{'color': '#817272'}" >&nbsp;&nbsp;Processing</span>&nbsp;&nbsp;
+							<span class="fa fa-truck" aria-hidden="true"  [ngStyle]="gettracking==='In-transit'?{'color': '#00BCD4'}:{'color': '#817272'}" >&nbsp;&nbsp;In-transit</span>&nbsp;&nbsp;
+							<span class="fa fa-ship" aria-hidden="true"  [ngStyle]="gettracking==='Shipped'?{'color': '#00BCD4'}:{'color': '#817272'}" >&nbsp;&nbsp;Shipped</span>
+						</div>
               	<table style="width:100%;">
 						<tr>
 							<th>Information</th>
 							<th>Details</th>
 						</tr>
 						<tr>
-							<td>
+							<td style="font-weight: bold;">
 							Country
 							</td>
 							<td>{{getlocation}}</td>
 						</tr>
 						<tr>
-							<td>Destination</td>
+							<td style="font-weight: bold;">Destination</td>
 							<td>{{getdestination}}</td>
 						</tr>
 						<tr>
-							<td>Description</td>
+							<td style="font-weight: bold;">Order Date</td>
+							<td>{{getdate}}</td>
+						</tr>
+						<tr>
+							<td style="font-weight: bold;">Expected Date of Delivery</td>
+							<td>{{expectedDate}}</td>
+						</tr>
+						<tr>
+							<td style="font-weight: bold;"> Tracking Status</td>
+							<td>{{gettracking}}</td>
+						</tr>
+						<tr>
+							<td style="font-weight: bold;">Remarks</td>
+							<td>{{remarks}}</td>
+						</tr>
+						<tr>
+							<td style="font-weight: bold;">Quantity</td>
+							<td>{{quantity}}</td>
+						</tr>
+						<tr>
+							<td style="font-weight: bold;">Description</td>
 							<td style="background: rgba(150,150,150,0.2);">{{trimfirstString}}<span
 								*ngIf="showReadMore">{{carryMore}}</span><br>
 							<span><a href="#" (click)="clickReadMore($event)">
@@ -45,6 +71,7 @@
 							</a>
 </span>
 						</td>
+						</tr>
 					</table>
 			
                 </div>

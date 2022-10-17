@@ -13,6 +13,7 @@ export class ApiServiceService {
   consign=`${this.env}/shipping/consignment`;
   viewmap=`${this.env}/shipping/viewmap`;
   sendcontact=`${this.env}/contactUsEmail/contactUsEmail`;
+  updatetrackcode=`${this.env}/shipping/updatetrackingstatus`;
   constructor(private _http:HttpClient) { }
 
   postData(data:any):Observable<any>{
@@ -28,6 +29,9 @@ export class ApiServiceService {
   }
   createShipping(data:any):Observable<any>{
     return this._http.post(`${this.shippingorder}`,data)
+  }
+ updateTracking(data:any):Observable<any>{
+    return this._http.post(`${this.updatetrackcode}`,data)
   }
 
   consignment():Observable<any>{

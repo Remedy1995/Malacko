@@ -2,6 +2,7 @@ const ShippingOrder=require('../models/ShippingOrder');
 const consignment=require('../helpers/helper');
 const sendEmail=require('../controller/email');//send email information to email user
 require('dotenv').config();
+const formatdate=require('../helpers/formatDate');
 const consign=new consignment("MALACK");
 const axios=require('axios');
 exports.createShippingOrder=async (req,res,next)=>{
@@ -28,9 +29,12 @@ exports.createShippingOrder=async (req,res,next)=>{
            email:email,
            ItemName:req.body.ItemName.replace(/[^a-zA-Z ]/g, ""),
            itemsDescription:req.body.itemsDescription.replace(/[^a-zA-Z ]/g, ""),
-           orderDate:Date.now(),
-           deliveryDate:Date.now(),
+           orderDate:formatdate.getDate(),
+           deliveryDate:req.body.date,
            consignment_number:value,
+           trackingstatus:req.body.trackingstatus,
+           remarks:req.body.remarks,
+           quantity:req.body.quantity,
            country:country
          })
          sendEmail.sendMail(createShipping);//send email
@@ -60,8 +64,12 @@ exports.createShippingOrder=async (req,res,next)=>{
          const value=consign.generate();
       ShippingOrder.updateMany({email:req.body.email},
          {country:country, country_latitude:latitude,country_longitude:longitude,ItemName:req.body.ItemName,
-         itemsDescription:req.body.itemsDescription,orderDate:Date.now(),deliveryDate:Date.now(),
-         consignment_number:value,destination:destination},
+         itemsDescription:req.body.itemsDescription,orderDate:formatdate.getDate(),deliveryDate:req.body.date,
+         consignment_number:value,destination:destination, deliveryDate:req.body.date,
+         consignment_number:value,
+         trackingstatus:req.body.trackingstatus,
+         remarks:req.body.remarks,
+         quantity:req.body.quantity,},
           function(err, docs){
     if(err) res.json(err);
     else res.status(200).json({message:"Shipping Order has been created successfully and your tracking id "+value});
@@ -117,14 +125,53 @@ ShippingOrder.find({'consignment_number' : new RegExp(consignment_number, 'i')})
 
 
 }).catch(error=>{
-   res.status(500).json({
-      error:error
-   })
+   res.json({error:"Internal Server error"});
 }
 
 )
 }
   
+
+
+
+
+exports.updateTrackingStatus=(req,res)=>{
+   const consignment_code=req.body.consignment_code;
+   const trackingstatus=req.body.trackingstatus;
+   var email_address='';
+   ShippingOrder.find({'consignment_number': new RegExp(consignment_code, 'i')}).then(data=>{
+      if(data.length===0){
+        res.json({
+           message : "The tracking code you entered does not exist in our records"
+        })
+      }
+      else{
+         //let get our email address from the data;
+         data.map(info=>{
+            email_address=info.email;
+         })
+         //if the data exist update our tracking status
+         ShippingOrder.updateMany({consignment_number:consignment_code},
+            {trackingstatus:trackingstatus}).then(docs=>{
+            res.status(200).json({message:"You have successfully updated the tracking status for "+consignment_code,docs})
+            }).catch(error=>{
+               res.json({message:"Sorry an error occured try again",error});
+            })
+          
+      //create object for our email handler
+             const doc = {
+                      email:email_address,
+                      consignment_number:consignment_code,
+                     trackingstatus:trackingstatus
+                   }
+              console.log(sendEmail.updateTrackingCodeEmail(doc));//send new tracking status to email
+               }
+         });
+      } 
+    
+    
+
+     
 
   
 

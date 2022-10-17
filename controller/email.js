@@ -20,7 +20,7 @@ exports.sendMail=(emailInfo)=>{
     apiInstance.sendTransacEmail(sendSmtpEmail).then(function(data) {
       console.log('API called successfully. Returned data: ' + JSON.stringify(data));
     }, function(error) {
-      console.error(error.response.status);
+      console.error(error);
     });
  
 }
@@ -57,3 +57,28 @@ exports.contactUsEmail=async(req,res)=>{
 
 
 }
+
+//get data from the update tracking order
+exports.updateTrackingCodeEmail=(docs)=>{
+  let apiInstance = new SibApiV3Sdk.TransactionalEmailsApi();
+    let sendSmtpEmail = new SibApiV3Sdk.SendSmtpEmail(); 
+    sendSmtpEmail.subject = "Update On Tracking Status";
+    sendSmtpEmail.htmlContent = "<html><body><h3>Hello {{params.email}},</h3><p>Your tracking order has been updated to {{params.subject}}.<p>Your goods will be delivered in the next few days.Thanks</p></body></html>";
+    sendSmtpEmail.sender = {"name":"MalarkGlobal Shipping Company","email":"malackshipping@gmail.com"};
+    sendSmtpEmail.to = [{"email":docs.email,"name":docs.email}];
+    sendSmtpEmail.cc = [{"email":"malackshipping@gmail.com","name":"Malark Global"}];
+    // sendSmtpEmail.bcc = [{"email":"John Doe","name":"@example.com"}];
+    // sendSmtpEmail.replyTo = {"email":"replyto@domain.com","name":"John Doe"};
+    sendSmtpEmail.headers = {"Some-Custom-Name":"unique-id-1234"};
+    sendSmtpEmail.params = {"subject":docs.trackingstatus,"consignment":docs.consignment_number,"email":docs.email};
+    apiInstance.sendTransacEmail(sendSmtpEmail).then(function(data) {
+      console.log(data)
+    }, function(error) {
+      (console.log(error));
+    });
+
+
+
+}
+
+

@@ -39,9 +39,15 @@ export class ViewmapComponent implements OnInit {
       this.cookie.set('destination',data.message[0].destination);
       this.cookie.set('description',data.message[0].itemsDescription);
       this.cookie.set('country',data.message[0].country);
+      this.cookie.set('tracking',data.message[0].trackingstatus);
+      this.cookie.set('date',data.message[0].orderDate);
+      this.cookie.set('expected-date',data.message[0].deliveryDate);
+      this.cookie.set('remarks',data.message[0].remarks);
+      this.cookie.set('quantity',data.message[0].quantity);
      },
       error:(error)=>
-      {this.notification=error.error.message,
+      {
+        this.notification=error.statusText,
         setTimeout(()=>{
           this.showspinner = false;
           this.consignmentInformation.reset()

@@ -8,6 +8,7 @@ import { FinalMapComponent } from './final-map/final-map.component';
 import { HomeComponent } from './home/home.component';
 import { MapComponent } from './map/map.component';
 import { ServicesComponent } from './services/services.component';
+import { UpdateTrackingComponent } from './update-tracking/update-tracking.component';
 import { ViewmapComponent } from './viewmap/viewmap.component';
 
 const routes: Routes = [
@@ -20,6 +21,7 @@ const routes: Routes = [
   {path:'email',component:EmailComponent},
   {path:'about-us',component:AboutUsComponent},
   {path:'services',component:ServicesComponent},
+  {path:'update-tracking',component:UpdateTrackingComponent}
 ];
 
 @NgModule({

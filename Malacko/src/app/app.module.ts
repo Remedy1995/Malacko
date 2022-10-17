@@ -20,6 +20,7 @@ import { AboutUsComponent } from './about-us/about-us.component';
 import { ServicesComponent } from './services/services.component';
 import { HeaderComponent } from './partials/header/header.component';
 import { FooterComponent } from './partials/footer/footer.component';
+import { UpdateTrackingComponent } from './update-tracking/update-tracking.component';
 
 
 
@@ -38,7 +39,8 @@ import { FooterComponent } from './partials/footer/footer.component';
     AboutUsComponent,
     ServicesComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    UpdateTrackingComponent
   ],
   imports: [
  

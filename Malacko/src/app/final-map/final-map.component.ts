@@ -20,13 +20,15 @@ export class FinalMapComponent implements OnInit {
   country:any;
   getlatitude:any;
   getlongitude:any;
+  gettracking:any;
+  getdate!:any;
+  expectedDate!:any;
+  remarks:any;
+  quantity:any;
   map!:Map;
  constructor(private service:ApiServiceService,private cookie:CookieService) { }
  ngOnInit(): void {
    
-     this.service.getGeocoding().subscribe(geocode=>{
-     console.log(geocode)
-       });
        //initialise our map  
        console.log(this.cookie.get('latitude'));
        console.log(this.cookie.get('longitude'));
@@ -35,16 +37,24 @@ export class FinalMapComponent implements OnInit {
        this.getlocation=this.cookie.get('country')
        this.getdescription=this.cookie.get('description');
        this.getdestination=this.cookie.get('destination');
+       this.gettracking=this.cookie.get('tracking');
+       this.getdate=this.cookie.get('date');
+       this.expectedDate=this.cookie.get('expected-date');
+       this.remarks=this.cookie.get('remarks');
+       this.quantity=this.cookie.get('quantity');
+
 
        this.trimgetDescription();
  }
 //trim our description
  trimgetDescription(){
+  this.showReadMore=false;
   var data=[];
   //let split our text in an array of words
   var splitwords=this.getdescription.split(" ");
   //let check if the length of the array is greater than 30
    if(splitwords.length<=30){
+
    let reverse=splitwords.reverse();//reverse the string
    let joinstring=reverse.join(" ");//join the string back
    this.trimfirstString=joinstring;//set our text to our string;

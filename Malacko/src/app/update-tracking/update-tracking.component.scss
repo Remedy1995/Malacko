@@ -1,0 +1,46 @@
+select{
+    width: 200px;
+    position: relative;
+    top: 15px;
+    height: 50px;
+    font-size: 20px;
+    box-shadow: 1px 1px 1px 1px grey;
+    border-radius: 7px;
+}
+
+@media only screen and (min-width: 200px) and (max-width: 780px)  {
+    //Put your CSS here for 200px to 767px width devices (cover all width between 200px to 767px //
+
+    .input-group input.margin2{
+        width: 200px;
+    }
+    select{
+    max-width: -webkit-fill-available;
+    position: relative;
+    top: 12px;
+    height: 50px;
+    font-size: 20px;
+    box-shadow: 1px 1px 1px 1px grey;
+    border-radius: 7px;
+    margin-bottom: 20px;
+        }
+    
+    }
+
+    @media only screen and (min-width: 768px) and (max-width: 1600px)  {
+        //Put your CSS here for 768px to 1024px width devices(covers all width between 768px to 1024px //   
+        select{
+            width: 140px;
+            position: relative;
+            top: 15px;
+            height: 50px;
+            font-size: 20px;
+            box-shadow: 1px 1px 1px 1px grey;
+            border-radius: 7px;
+            margin-top: -2px;
+            margin-left: 10px;
+            }
+  
+    }
+
+   
