@@ -1,6 +1,6 @@
 require('dotenv').config()
 const mongoose=require('mongoose');
-const mongodb=process.env.MONGODB_LOCAL;
+const mongodb=process.env.MONGODB;
 
 function ConnectDB(){
 mongoose.connect(mongodb,{useNewUrlParser:true,useUnifiedTopology:true}).then(()=>
