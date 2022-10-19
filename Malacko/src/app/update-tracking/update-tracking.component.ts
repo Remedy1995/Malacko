@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
 import { NgxSpinnerService } from 'ngx-spinner';
 import Swal from 'sweetalert2';
 import { ApiServiceService } from '../api-service.service';
@@ -14,8 +15,9 @@ export class UpdateTrackingComponent implements OnInit {
 
   showspinner:boolean=false;
   showRoutespinner:boolean=false;
+  setstatuscode!:any;
   notification:any;
-  constructor(private service:ApiServiceService,private spinner: NgxSpinnerService,private router:Router) {
+  constructor(private service:ApiServiceService,private spinner: NgxSpinnerService,private router:Router,private cookie:CookieService) {
    }
   ngOnInit(): void {  
   
@@ -36,9 +38,14 @@ submit(){
    console.log(this.statusInformation)
    this.service.updateTracking(this.statusInformation.value).subscribe({
      next:(data)=>{
+      //set the 
        //set our notification 
+
        this.notification=data.message;
+       console.log(this.notification)
+      
       if(data){
+        console.log(this.setstatuscode)
       setTimeout(()=>{
         this.showspinner = false;
         Swal.fire({  

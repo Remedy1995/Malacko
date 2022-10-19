@@ -110,34 +110,39 @@ catch(error){
 //
 exports.viewCurrentMap=(req,res,next)=>{
 //let view tracking of user using the consignment number
-const consignment_number=req.body.consignment_number.replace(/[^a-zA-Z ]/g, "");
-ShippingOrder.find({'consignment_number' : new RegExp(consignment_number, 'i')}).then(data=>{
- if(data.length===0){
-   res.status(500).json({
-      message:"No information available"
-   })
- }
- else{
-   res.json({
-      message:data
-   })
- }
+const consignment_number=req.body.consignment_number;
 
+ShippingOrder.findOne({'consignment_number' : new RegExp(consignment_number, 'i')}).then(data=>{ 
+  if(data===null){
+   res.status(404).json({message:'consignment code does not exists'})
+   console.log('consignment code does not exists')
+  }else{
+   if(data.consignment_number!==consignment_number){
+      res.status(400).json({message:'Wrong consignment code provided'})
+      console.log('Wrong consignment code provided');
+   }
+   else{
+      console.log(data)
+      res.status(200).json({message:data })
+   }
+
+  }
 
 }).catch(error=>{
-   res.json({error:"Internal Server error"});
+   res.status(500).json({message:error})
+})
 }
 
-)
-}
-  
+
+
 
 
 
 
 exports.updateTrackingStatus=(req,res)=>{
    const consignment_code=req.body.consignment_code;
-   const trackingstatus=req.body.trackingstatus;
+   const trackingstatus=req.body.status_code;
+  
    var email_address='';
    ShippingOrder.find({'consignment_number': new RegExp(consignment_code, 'i')}).then(data=>{
       if(data.length===0){
@@ -151,6 +156,7 @@ exports.updateTrackingStatus=(req,res)=>{
             email_address=info.email;
          })
          //if the data exist update our tracking status
+      
          ShippingOrder.updateMany({consignment_number:consignment_code},
             {trackingstatus:trackingstatus}).then(docs=>{
             res.status(200).json({message:"You have successfully updated the tracking status for "+consignment_code,docs})
@@ -164,7 +170,7 @@ exports.updateTrackingStatus=(req,res)=>{
                       consignment_number:consignment_code,
                      trackingstatus:trackingstatus
                    }
-              console.log(sendEmail.updateTrackingCodeEmail(doc));//send new tracking status to email
+                sendEmail.updateTrackingCodeEmail(doc);//send new tracking status to email
                }
          });
       } 
