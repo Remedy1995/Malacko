@@ -10,7 +10,7 @@ exports.sendMail=(emailInfo)=>{
     let sendSmtpEmail = new SibApiV3Sdk.SendSmtpEmail(); 
     sendSmtpEmail.subject = "My {{params.subject}}";
     sendSmtpEmail.htmlContent = "<html><body><h3>Hello {{params.username}},</h3><p>Thank you for your recent order your consignment code is {{params.consignment}}.</p><p>You can track your goods using this consignment code.</p><p>Click on the web link to track your goods <a href='https://malarkglobal.com/view-map'>MalarkGlobal</a><p>{{params.items}}</p><strong style='color:red;'>Best Wishes</strong></body></html>";
-    sendSmtpEmail.sender = {"name":"MalarkGlobal Shipping Company","email":"malackshipping@gmail.com"};
+    sendSmtpEmail.sender = {"name":"MalarkGlobal Shipping Company","email":"info@malarktranslogistics.com"};
     sendSmtpEmail.to = [{"email":emailInfo.email,"name":replace}];
     // sendSmtpEmail.cc = [{"email":"example2@example2.com","name":"Janice Doe"}];
     // sendSmtpEmail.bcc = [{"email":"John Doe","name":"@example.com"}];
@@ -40,9 +40,9 @@ exports.contactUsEmail=async(req,res)=>{
     let sendSmtpEmail = new SibApiV3Sdk.SendSmtpEmail(); 
     sendSmtpEmail.subject = "My {{params.subject}}";
     sendSmtpEmail.htmlContent = "<html><body><h3>Hello {{params.fullname}},</h3><p>We have recieived your message, a customer representative will be in touch with you shortly.<p>{{params.message}}</p></body></html>";
-    sendSmtpEmail.sender = {"name":"MalarkGlobal Shipping Company","email":"malackshipping@gmail.com"};
+    sendSmtpEmail.sender = {"name":"MalarkGlobal Shipping Company","email":"info@malarktranslogistics.com"};
     sendSmtpEmail.to = [{"email":data[2],"name":data[0]}];
-    sendSmtpEmail.cc = [{"email":"malackshipping@gmail.com","name":"Malark Global"}];
+    sendSmtpEmail.cc = [{"email":"info@malarktranslogistics.com","name":"Malark Global"}];
     // sendSmtpEmail.bcc = [{"email":"John Doe","name":"@example.com"}];
     // sendSmtpEmail.replyTo = {"email":"replyto@domain.com","name":"John Doe"};
     sendSmtpEmail.headers = {"Some-Custom-Name":"unique-id-1234"};
@@ -64,9 +64,9 @@ exports.updateTrackingCodeEmail=(docs)=>{
     let sendSmtpEmail = new SibApiV3Sdk.SendSmtpEmail(); 
     sendSmtpEmail.subject = "Update On Tracking Status";
     sendSmtpEmail.htmlContent = "<html><body><h3>Hello {{params.email}},</h3><p>Your tracking order has been updated to {{params.subject}}.<p>Your goods will be delivered in the next few days.Thanks</p></body></html>";
-    sendSmtpEmail.sender = {"name":"MalarkGlobal Shipping Company","email":"malackshipping@gmail.com"};
+    sendSmtpEmail.sender = {"name":"MalarkGlobal Shipping Company","email":"info@malarktranslogistics.com"};
     sendSmtpEmail.to = [{"email":docs.email,"name":docs.email}];
-    sendSmtpEmail.cc = [{"email":"malackshipping@gmail.com","name":"Malark Global"}];
+    sendSmtpEmail.cc = [{"email":"info@malarktranslogistics.com","name":"Malark Global"}];
     // sendSmtpEmail.bcc = [{"email":"John Doe","name":"@example.com"}];
     // sendSmtpEmail.replyTo = {"email":"replyto@domain.com","name":"John Doe"};
     sendSmtpEmail.headers = {"Some-Custom-Name":"unique-id-1234"};
