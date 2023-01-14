@@ -57,7 +57,15 @@
               ],
 
               
-              "outputHashing": "all"
+              "outputHashing": "all",
+              "optimization": {
+                "scripts": true,
+                "styles": {
+                  "minify": true,
+                  "inlineCritical": false
+                },
+                "fonts": false
+              }
             },
             "dev": {
               "fileReplacements": [
@@ -65,7 +73,14 @@
                       "replace": "src/environments/environment.ts",
                       "with": "src/environments/environment.dev.ts"
                   }
-              ]
+              ], "optimization": {
+                "scripts": true,
+                "styles": {
+                  "minify": true,
+                  "inlineCritical": false
+                },
+                "fonts": false
+              }
           },
             "development": {
                 "fileReplacements": [

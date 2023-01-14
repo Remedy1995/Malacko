@@ -21,6 +21,7 @@ import { ServicesComponent } from './services/services.component';
 import { HeaderComponent } from './partials/header/header.component';
 import { FooterComponent } from './partials/footer/footer.component';
 import { UpdateTrackingComponent } from './update-tracking/update-tracking.component';
+import { ContactInformationComponent } from './contact-information/contact-information.component';
 
 
 
@@ -40,7 +41,8 @@ import { UpdateTrackingComponent } from './update-tracking/update-tracking.compo
     ServicesComponent,
     HeaderComponent,
     FooterComponent,
-    UpdateTrackingComponent
+    UpdateTrackingComponent,
+    ContactInformationComponent
   ],
   imports: [
  
