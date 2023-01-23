@@ -2,3 +2,19 @@
     height: 500px;
     width: auto;
   }
+
+  
+@media all and (max-width : 736px) {
+
+#map{
+  display: none;
+}
+.main_grid_contact {
+  flex-direction: column;
+  position: static;
+  width: 100%;
+  position: relative;
+  top: 100px;
+  left: 0px;
+}
+}
