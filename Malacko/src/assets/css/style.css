@@ -450,9 +450,7 @@ li>a:only-child:after {
 
 @media (max-width:600px) {
 	.top-grid p a {
-		position: relative;
-		top: 250px;
-		left: 155px
+		display:none;
 	}
 }
 
