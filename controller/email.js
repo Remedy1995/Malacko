@@ -9,7 +9,7 @@ exports.sendMail=(emailInfo)=>{
     let apiInstance = new SibApiV3Sdk.TransactionalEmailsApi();
     let sendSmtpEmail = new SibApiV3Sdk.SendSmtpEmail(); 
     sendSmtpEmail.subject = "My {{params.subject}}";
-    sendSmtpEmail.htmlContent = "<html><body><h3>Hello {{params.username}},</h3><p>Thank you for your recent order your consignment code is {{params.consignment}}.</p><p>You can track your goods using this consignment code.</p><p>Click on the web link to track your goods <a href='https://malarkglobal.com/view-map'>MalarkGlobal</a><p>{{params.items}}</p><strong style='color:red;'>Best Wishes</strong></body></html>";
+    sendSmtpEmail.htmlContent = "<html><body><h3>Hello {{params.username}},</h3><p>Thank you for your recent order your consignment code is {{params.consignment}}.</p><p>You can track your goods using this consignment code.</p><p>Click on the web link to track your goods <a href='https://malarktranslogistics.com/view-map'>MalarkGlobal</a><p>{{params.items}}</p><strong style='color:red;'>Best Wishes</strong></body></html>";
     sendSmtpEmail.sender = {"name":"MalarkGlobal Shipping Company","email":"info@malarktranslogistics.com"};
     sendSmtpEmail.to = [{"email":emailInfo.email,"name":replace}];
     // sendSmtpEmail.cc = [{"email":"example2@example2.com","name":"Janice Doe"}];
