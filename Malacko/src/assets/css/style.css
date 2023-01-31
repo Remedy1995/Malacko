@@ -14,6 +14,9 @@ body {
 	font-family: 'Poppins', sans-serif;
 }
 
+
+
+
 @media (max-width:780px) {
 
 	html,
@@ -24,7 +27,45 @@ body {
 		font-family: 'Poppins', sans-serif;
 		overflow-x: hidden;
 	}
+
+	span.block {
+		position: relative;
+		display: inline-grid;
+		right: 20px;
+		bottom: 20px;
+	}
+
+	.myemail {
+		position: relative;
+		top: 40px;
+		left: 40px;
+	}
+
+	p.digits {
+		position: relative;
+		top: 20px;
+
+	}
+
+	.mobile {
+		position: relative;
+		top: 38px;
+		right: 105px;
+	}
+
+	.block2 {
+		position: relative;
+		display: inline-block;
+		bottom: 56px;
+	}
+
+	.opev {
+		position: relative;
+		top: 30px;
+		right: 150px;
+	}
 }
+
 
 div.row.stat-grids {
 	/* background: #e9edf1 url(../images/banner.jpg) fixed; */
@@ -35,6 +76,7 @@ div.row.stat-grids {
 html {
 	scroll-behavior: smooth;
 }
+
 
 .swal2-popup {
 	width: 350px;
@@ -420,7 +462,6 @@ li>a:only-child:after {
 		display: block;
 		width: 94%;
 	}
-
 }
 
 .user span.fa {
@@ -445,13 +486,6 @@ li>a:only-child:after {
 
 .top-grid p a {
 	color: #eee;
-}
-
-
-@media (max-width:600px) {
-	.top-grid p a {
-		display:none;
-	}
 }
 
 ​ .top_header span.block {
@@ -1893,7 +1927,8 @@ ul.team-social li a span.fa {
 	}
 
 	.top-grid span.fa {
-		font-size: 35px;
+		font-size: 28px;
+		margin-right: 10px;
 	}
 
 	.gal {
@@ -2028,7 +2063,7 @@ ul.team-social li a span.fa {
 	}
 
 	.inner-banner {
-		min-height: 35vw;
+		min-height: 55vw;
 	}
 
 	.client-info {
@@ -2154,7 +2189,7 @@ ul.team-social li a span.fa {
 	}
 
 	.inner-banner {
-		min-height: 43vw;
+		min-height: 73vw;
 	}
 
 	ul.team-social li a span.fa {

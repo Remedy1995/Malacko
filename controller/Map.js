@@ -1,17 +1,17 @@
-const axios=require('axios');
-exports.searchMapCordinates=(req,res,next)=>{
-    const geolocation=req.body.geolocation;
-    const formatted=geolocation.replace(/[^a-zA-Z ]/g, "");
-    const data=[];
-    axios.get(`http://www.mapquestapi.com/geocoding/v1/address?key=5GO2S6wZyL99zNmGtYAGUgKHpq4NVNMF&location=${formatted}`)
+const axios = require('axios');
+exports.searchMapCordinates = (req, res, next) => {
+  const geolocation = req.body.geolocation;
+  const formatted = geolocation.replace(/[^a-zA-Z ]/g, "");
+  const data = [];
+  axios.get(`http://www.mapquestapi.com/geocoding/v1/address?key=5GO2S6wZyL99zNmGtYAGUgKHpq4NVNMF&location=${formatted}`)
     .then(response => {
-    data.push(response.data);
-    data.forEach(number=>{
-    const geodata=number.results[0].locations[0].latLng;
-    const location=number.results[0].providedLocation.location;
-    res.json({message:geodata,location:location});
-   
-    })
+      data.push(response.data);
+      data.forEach(number => {
+        const geodata = number.results[0].locations[0].latLng;
+        const location = number.results[0].providedLocation.location;
+        res.json({ message: geodata, location: location });
+
+      })
 
     }).catch(error => {
       console.log(error);
