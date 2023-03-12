@@ -1,0 +1,23 @@
+.myemail {
+    padding: 20px;
+}
+
+.logo-image {
+    width: 25%;
+    border-radius: 40%;
+    
+}
+
+@media screen and (min-width:768px) {
+    .logo-image {
+        border-radius: 40%;
+        width: 55px;
+    }
+}
+
+@media screen and (max-width:768px) {
+    .logo-image {
+        border-radius: 30%;
+        width: 50px;
+    }
+}

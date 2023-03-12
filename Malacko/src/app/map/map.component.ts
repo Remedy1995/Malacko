@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Person } from 'models/person';
+import { Person } from 'models/person.model';
 import { myData } from 'data/data';
 @Component({
   selector: 'app-map',

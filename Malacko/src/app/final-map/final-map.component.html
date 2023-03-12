@@ -27,64 +27,55 @@
 							<span class="fa fa-truck" aria-hidden="true"  [ngStyle]="gettracking==='In-transit'?{'color': '#00BCD4'}:{'color': '#817272'}" >&nbsp;&nbsp;In-transit</span>&nbsp;&nbsp;
 							<span class="fa fa-ship" aria-hidden="true"  [ngStyle]="gettracking==='Picked Up'?{'color': '#00BCD4'}:{'color': '#817272'}" >&nbsp;&nbsp;Picked Up</span>
 						</div>
-              	<table style="width:100%;">
-						<tr>
-							<th>Information</th>
-							<th>Details</th>
-						</tr>
-						<tr>
-							<td style="font-weight: bold;">
-							Country
-							</td>
-							<td>{{getlocation | titlecase}}</td>
-						</tr>
-						<tr>
-							<td style="font-weight: bold;">Destination</td>
-							<td>{{getdestination | titlecase}}</td>
-						</tr>
-						<tr>
-							<td style="font-weight: bold;">Order Date</td>
-							<td>{{getdate}}</td>
-						</tr>
-						<tr>
-							<td style="font-weight: bold;">Expected Date of Delivery</td>
-							<td>{{expectedDate | titlecase}}</td>
-						</tr>
-						<tr>
-							<td style="font-weight: bold;"> Tracking Status</td>
-							<td>{{gettracking | titlecase}}</td>
-						</tr>
-						<tr>
-							<td style="font-weight: bold;">Remarks</td>
-							<td>{{remarks | titlecase}}</td>
-						</tr>
-						<tr>
-							<td style="font-weight: bold;">Quantity</td>
-							<td>{{quantity | titlecase}}</td>
-						</tr>
-						<tr>
-							<td style="font-weight: bold;">Description</td>
-							<td style="background: rgba(150,150,150,0.2);">{{trimfirstString}}<span
-								*ngIf="showReadMore">{{carryMore}}</span><br>
-							<span><a href="#" (click)="clickReadMore($event)">
-								{{showReadMore?"Read Less":"Read More"}}
-							</a>
-</span>
-						</td>
-						</tr>
-					</table>
+
 			
+					<table class="table table-striped">
+						<thead>
+						  <tr>
+							<th scope="col">Information</th>
+							<th scope="col">Details</th>
+						  </tr>
+						</thead>
+						<tbody>
+						  <tr>
+							<th scope="row">Final Destination</th>
+							<td>{{getlocation | titlecase}}</td>
+						  </tr>
+						  <tr>
+							<th scope="row">Current Location</th>
+							<td>{{getdestination | titlecase}}</td>
+							
+						  </tr>
+						  <tr>
+							<th scope="row">Picked Up Date</th>
+							<td>{{getdate}}</td>
+						  </tr>
+						  <tr>
+							<th scope="row">Expected Date Of Delivery</th>
+							<td>{{expectedDate | titlecase}}</td>
+						  </tr>
+						  <tr>
+							<th scope="row">Tracking Status</th>
+							<td>{{gettracking | titlecase}}</td>
+						  </tr>
+						  <tr>
+							<th scope="row">Remarks</th>
+							<td>{{remarks | titlecase}}</td>
+						  </tr>
+						  <tr>
+							<th scope="row">Quantity</th>
+							<td>{{quantity | titlecase}}</td>
+						  </tr>
+						  <tr>
+							<th scope="row">Description</th>
+							<td>{{getdescription}}</td>
+						  </tr>
+						</tbody>
+					  </table>
                 </div>
 				</div>
 			</div>
-			<div class="w3ls-contact">
-				<h3 class="text-capitalize mb-3">contact Information</h3>
-				<address>
-					<p class="mt-3"><span class="fa fa-map-marker"></span>Cyprus</p>
-					<p class="my-2"><span class="fa fa-phone"></span> +14 999 888 7773 </p>
-					<p class=""><span class="fa fa-envelope-open"></span> <a href="mailto:info@malarktranslogistics.com">info@malarktranslogistics.com</a> </p>
-				</address>
-			</div>
+			<app-contact-information></app-contact-information>
 		</div>
 	</div>
 </section>

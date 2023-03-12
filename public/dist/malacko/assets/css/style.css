@@ -41,6 +41,8 @@ body {
 		left: 40px;
 	}
 
+
+
 	p.digits {
 		position: relative;
 		top: 20px;
@@ -173,7 +175,7 @@ nav {
 	display: initial;
 	margin: 0;
 	letter-spacing: 0px;
-	color: #fff;
+	 color:#00BCD4;;
 	font-weight: 600;
 	padding: 3px 0;
 	border: none;
@@ -1067,6 +1069,10 @@ ul.links li a {
 	-webkit-flex-basis: 40%;
 	padding: 3em 3em;
 	background: #222;
+	height: 35em;
+    margin-top: 30px;
+	position: relative;
+    right: 90px;
 }
 
 .input-group input[type="text"],
@@ -1388,6 +1394,7 @@ a.move-top span {
 }
 
 
+
 /* testimonials */
 .main-clients {
 	width: 65%;
@@ -1653,15 +1660,17 @@ ul.team-social li a span.fa {
 		left: 5%;
 	}
 
-	.w3ls-contact {
+	/* .w3ls-contact {
 		padding: 3em 2em;
-	}
+	} */
 }
 
 @media(max-width:1024px) {
 	.choose {
 		width: 95%;
 	}
+
+	
 
 	.banner {
 		height: 50vw;
@@ -1744,10 +1753,41 @@ ul.team-social li a span.fa {
 	}
 }
 
+
+@media (max-width:820px){
+	.w3ls-contact {
+		flex-basis: 40%;
+		-webkit-flex-basis: 40%;
+		padding: 3em 3em;
+		background: #222;
+		height: 35em;
+		margin-top: 30px;
+		position: relative;
+		right: 90px;
+		padding: 20px;
+	}
+}
+
+@media (max-width:812px){
+	.w3ls-contact {
+    -webkit-flex-basis: 40%;
+    padding: 3em 3em;
+    background: #222;
+    height: 35em;
+    margin-top: 30px;
+    position: relative;
+    right: 90px;
+    padding: 50px;
+	}
+}
+
+
+
 @media(max-width:900px) {
 	.banner {
 		height: 54vw;
 	}
+	
 
 	.banner-text {
 		padding-top: 20vw;
@@ -1819,6 +1859,10 @@ ul.team-social li a span.fa {
 @media(max-width:736px) {
 	.slider-info {
 		width: 100%;
+	}
+
+	.myemail {
+		padding: 20px;
 	}
 
 	.banner {

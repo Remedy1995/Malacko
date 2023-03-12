@@ -44,41 +44,41 @@ export class FinalMapComponent implements OnInit {
     this.quantity = this.cookie.get('quantity');
 
 
-    this.trimgetDescription();
+    // this.trimgetDescription();
   }
   //trim our description
-  trimgetDescription() {
-    this.showReadMore = false;
-    var data = [];
-    //let split our text in an array of words
-    var splitwords = this.getdescription.split(" ");
-    //let check if the length of the array is greater than 30
-    if (splitwords.length <= 30) {
-      let joinstring = splitwords.join(" ");//join the string back
-      this.trimfirstString = joinstring;//set our text to our string;
+  // trimgetDescription() {
+  //   this.showReadMore = false;
+  //   var data = [];
+  //   //let split our text in an array of words
+  //   var splitwords = this.getdescription.split(" ");
+  //   //let check if the length of the array is greater than 30
+  //   if (splitwords.length <= 30) {
+  //     let joinstring = splitwords.join(" ");//join the string back
+  //     this.trimfirstString = joinstring;//set our text to our string;
 
-    }
-    else if (splitwords.length > 30) {
-      //check the index of the array and slice the midpoint of the array
-      let checkindex = splitwords.length - 1;
-      //let store our index
-      this.ReadMoreInformation[1] = splitwords.length;
-      let index = checkindex / 2;//to get the mid of the array
-      let slice_index = Math.floor(index);
-      data.push(splitwords.splice(0, slice_index));//push the second part of the data into the array;
+  //   }
+  //   else if (splitwords.length > 30) {
+  //     //check the index of the array and slice the midpoint of the array
+  //     let checkindex = splitwords.length - 1;
+  //     //let store our index
+  //     this.ReadMoreInformation[1] = splitwords.length;
+  //     let index = checkindex / 2;//to get the mid of the array
+  //     let slice_index = Math.floor(index);
+  //     data.push(splitwords.splice(0, slice_index));//push the second part of the data into the array;
 
-      //let save the index of the array in the read more information
-      this.ReadMoreInformation[0] = slice_index;
-      console.log(this.ReadMoreInformation);
-      const firtPartString = data[0];
-      const joinString = firtPartString.join(" ");
-      this.trimfirstString = joinString;//display the first sliced string
-      //show our readmore button
+  //     //let save the index of the array in the read more information
+  //     this.ReadMoreInformation[0] = slice_index;
+  //     console.log(this.ReadMoreInformation);
+  //     const firtPartString = data[0];
+  //     const joinString = firtPartString.join(" ");
+  //     this.trimfirstString = joinString;//display the first sliced string
+  //     //show our readmore button
 
-    }
+  //   }
 
 
-  }
+  // }
 
   //click to Read more 
 
