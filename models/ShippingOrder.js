@@ -15,10 +15,10 @@ const ShippingOrderSchema = {
    remarks: String,
    ShipperName: String,
    ShipperAddress: String,
-   ShipperPhone: Number,
+   ShipperPhone: String,
    RecieverName: String,
    ReceiverAddress: String,
-   ReceiverPhone: Number
+   ReceiverPhone: String
 
 }
 const ShippingOrder = mongoose.model("shippinginformation", ShippingOrderSchema);
