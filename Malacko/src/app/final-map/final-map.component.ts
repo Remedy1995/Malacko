@@ -26,6 +26,12 @@ export class FinalMapComponent implements OnInit {
   remarks: any;
   quantity: any;
   map!: Map;
+  ShipperName!: any;
+  ShipperAddress!: any;
+  ShipperPhone!: any;
+  RecieverName!: any;
+  ReceiverAddress!: any;
+  ReceiverPhone!: any;
   constructor(private service: ApiServiceService, private cookie: CookieService) { }
   ngOnInit(): void {
 
@@ -42,8 +48,12 @@ export class FinalMapComponent implements OnInit {
     this.expectedDate = this.cookie.get('expected-date');
     this.remarks = this.cookie.get('remarks');
     this.quantity = this.cookie.get('quantity');
-
-
+    this.ShipperName = this.cookie.get(' ShipperName');
+    this.ShipperAddress = this.cookie.get('ShipperAddress');
+    this.ShipperPhone = this.cookie.get(' ShipperPhone');
+    this.RecieverName = this.cookie.get(' RecieverName');
+    this.ReceiverAddress = this.cookie.get('ReceiverAddress');
+    this.ReceiverPhone = this.cookie.get('ReceiverPhone');
     // this.trimgetDescription();
   }
   //trim our description
@@ -105,7 +115,7 @@ export class FinalMapComponent implements OnInit {
     if (this.showReadMore === false) {
       this.showReadMore = !this.showReadMore;
     } else {
-      this.showReadMore =!this.showReadMore ;
+      this.showReadMore = !this.showReadMore;
     }
 
   }

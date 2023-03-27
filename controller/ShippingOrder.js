@@ -5,6 +5,7 @@ require('dotenv').config();
 const formatdate = require('../helpers/formatDate');
 const consign = new consignment("MALACK");
 const axios = require('axios');
+
 exports.createShippingOrder = async (req, res, next) => {
    const email = req.body.email;
    ShippingOrder.find({ 'email': new RegExp(email, 'i') }).then(data => {
@@ -15,6 +16,7 @@ exports.createShippingOrder = async (req, res, next) => {
          const data = [];
          axios.get(process.env.MAP_URL + `${destination}`)
             .then(response => {
+               console.log('The link is ',process.env.MAP_URL)
                data.push(response.data);
                data.forEach(async number => {
                   const geodata = number.results[0].locations[0].latLng;
@@ -22,6 +24,7 @@ exports.createShippingOrder = async (req, res, next) => {
                   const latitude = geodata['lat'];//this generates the latitude of the location
                   const longitude = geodata['lng'];//this generates the longitude of the location
                   const value = consign.generate();//this generates the consignment number
+
                   const createShipping = new ShippingOrder({
                      destination: location,
                      country_latitude: latitude,
@@ -32,10 +35,17 @@ exports.createShippingOrder = async (req, res, next) => {
                      orderDate: formatdate.getDate(),
                      deliveryDate: req.body.date,
                      consignment_number: value,
-                     trackingstatus:   req.body.trackingstatus,
-                     remarks: req.body.remarks,
-                     quantity: req.body.quantity,
-                     country: country
+                     trackingstatus: req.body.trackingstatus.replace(/[^a-zA-Z ]/g, ""),
+                     remarks: req.body.remarks.replace(/[^a-zA-Z ]/g, ""),
+                     quantity: req.body.quantity.replace(/[^a-zA-Z ]/g, ""),
+                     country: country,
+                     ShipperName: req.body.ShipperName.replace(/[^a-zA-Z ]/g, ""),
+                     ShipperAddress: req.body.ShipperAddress.replace(/[^a-zA-Z ]/g, ""),
+                     ShipperPhone: req.body.ShipperPhone.replace(/[^a-zA-Z ]/g, ""),
+                     RecieverName: req.body.ReceiverAddress.replace(/[^a-zA-Z ]/g, ""),
+                     ReceiverAddress: req.body.ReceiverAddress.replace(/[^a-zA-Z ]/g, ""),
+                     ReceiverPhone: req.body.ReceiverPhone.replace(/[^a-zA-Z ]/g, ""),
+
                   })
                   sendEmail.sendMail(createShipping);//send email
                   await createShipping.save().then(docs => {
@@ -66,13 +76,19 @@ exports.createShippingOrder = async (req, res, next) => {
                   const value = consign.generate();
                   ShippingOrder.updateMany({ email: req.body.email },
                      {
-                        country: country, country_latitude: latitude, country_longitude: longitude, ItemName: req.body.ItemName,
-                        itemsDescription: req.body.itemsDescription, orderDate: formatdate.getDate(), deliveryDate: req.body.date,
-                        consignment_number: value, destination: destination, deliveryDate: req.body.date,
+                        country: country, country_latitude: latitude, country_longitude: longitude, ItemName: req.body.ItemName.replace(/[^a-zA-Z ]/g, ""),
+                        itemsDescription: req.body.itemsDescription, orderDate: formatdate.getDate(), deliveryDate: req.body.date.replace(/[^a-zA-Z ]/g, ""),
+                        consignment_number: value, destination: destination, deliveryDate: req.body.date.replace(/[^a-zA-Z ]/g, ""),
                         consignment_number: value,
-                        trackingstatus: req.body.trackingstatus,
-                        remarks: req.body.remarks,
-                        quantity: req.body.quantity,
+                        trackingstatus: req.body.trackingstatus.replace(/[^a-zA-Z ]/g, ""),
+                        remarks: req.body.remarks.replace(/[^a-zA-Z ]/g, ""),
+                        quantity: req.body.quantity.replace(/[^a-zA-Z ]/g, ""),
+                        ShipperName: req.body.ShipperName.replace(/[^a-zA-Z ]/g, ""),
+                        ShipperAddress: req.body.ShipperAddress.replace(/[^a-zA-Z ]/g, ""),
+                        ShipperPhone: req.body.ShipperPhone.replace(/[^a-zA-Z ]/g, ""),
+                        RecieverName: req.body.ReceiverAddress.replace(/[^a-zA-Z ]/g, ""),
+                        ReceiverAddress: req.body.ReceiverAddress.replace(/[^a-zA-Z ]/g, ""),
+                        ReceiverPhone: req.body.ReceiverPhone.replace(/[^a-zA-Z ]/g, ""),
                      },
                      function (err, docs) {
                         if (err) res.json(err);

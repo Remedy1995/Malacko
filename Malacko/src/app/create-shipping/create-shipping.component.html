@@ -53,6 +53,18 @@
 					<div class="input-group">
 						<textarea rows="4" cols="50"  formControlName="itemsDescription"  placeholder="item description"></textarea>
 					</div>
+					<div class="input-group">
+						<input type="email" class="margin2" formControlName="ShipperName" placeholder="Shipper Name" style="text-transform: inherit;"  required="">
+						<input type="text"  formControlName="ShipperAddress" placeholder="Shipper Address"  required="">
+					</div>
+					<div class="input-group">
+						<input type="text" class="margin2" formControlName="ShipperPhone" placeholder="Shipper Phone" style="text-transform: inherit;"  required="">
+						<input type="text"  formControlName="RecieverName" placeholder="Reciever Name"  required="">
+					</div>
+					<div class="input-group">
+						<input type="text" class="margin2" formControlName="ReceiverAddress" placeholder="ReceiverAddress" style="text-transform: inherit;"  required="">
+						<input type="text" formControlName="ReceiverPhone" placeholder="Receiver Phone"  required="">
+					</div>
 						</div>
 						<div class="input-group1">
 							<button class="submit btn" (click)="submit()">

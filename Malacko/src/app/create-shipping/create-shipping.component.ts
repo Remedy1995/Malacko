@@ -33,6 +33,13 @@ export class CreateShippingComponent implements OnInit {
     quantity: new FormControl(''),
     trackingstatus: new FormControl('', Validators.required),
     date: new FormControl(''),
+    ShipperName:new FormControl('', Validators.required) ,
+    ShipperAddress: new FormControl('', Validators.required),
+    ShipperPhone: new FormControl('', Validators.required),
+    RecieverName:new FormControl('', Validators.required),
+    ReceiverAddress: new FormControl('', Validators.required),
+    ReceiverPhone: new FormControl('', Validators.required),
+
   })
 
   toggleInformation() {

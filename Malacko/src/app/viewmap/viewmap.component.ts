@@ -45,6 +45,12 @@ export class ViewmapComponent implements OnInit {
           this.cookie.set('expected-date', data.message.deliveryDate);
           this.cookie.set('remarks', data.message.remarks);
           this.cookie.set('quantity', data.message.quantity);
+          this.cookie.set(' ShipperName', data.message. ShipperName);
+          this.cookie.set('ShipperAddress', data.message.ShipperAddress);
+          this.cookie.set('ShipperPhone', data.message.ShipperPhone);
+          this.cookie.set('RecieverName', data.message.RecieverName);
+          this.cookie.set('ReceiverAddress', data.message.ReceiverAddress);
+          this.cookie.set('ReceiverPhone', data.message.ReceiverPhone);
         },
         error: (error) => {
           this.notification = error.error.message,
