@@ -48,8 +48,11 @@ export class CreateShippingComponent implements OnInit {
 
   submit() {
     if (this.shippingInformation.valid) {
+      console.log(this.shippingInformation.value)
       this.showspinner = true;
       this.service.createShipping(this.shippingInformation.value).subscribe({
+
+        
         next: (data) => {
           //set our notification 
           this.notification = data.message;
