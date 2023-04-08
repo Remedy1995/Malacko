@@ -50,8 +50,8 @@ export class FinalMapComponent implements OnInit {
     this.quantity = this.cookie.get('quantity');
     this.ShipperName = this.cookie.get(' ShipperName');
     this.ShipperAddress = this.cookie.get('ShipperAddress');
-    this.ShipperPhone = this.cookie.get(' ShipperPhone');
-    this.RecieverName = this.cookie.get(' RecieverName');
+    this.ShipperPhone = this.cookie.get('ShipperPhone');
+    this.RecieverName = this.cookie.get('RecieverName');
     this.ReceiverAddress = this.cookie.get('ReceiverAddress');
     this.ReceiverPhone = this.cookie.get('ReceiverPhone');
     // this.trimgetDescription();
