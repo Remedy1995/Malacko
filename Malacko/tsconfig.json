@@ -1,9 +1,10 @@
-/* To learn more about this file see: https://angular.io/config/tsconfig. */
 {
-  "compileOnSave": false,
-
+  "compileOnSave": true,
   "compilerOptions": {
     "baseUrl": "./",
+    "paths": {
+      "rxjs/*": ["node_modules/rxjs/*"]
+    },
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
     "strict": true,
@@ -17,10 +18,10 @@
     "experimentalDecorators": true,
     "moduleResolution": "node",
     "importHelpers": true,
-    "target": "es2020",
-    "module": "es2020",
+    "target": "es2015",
+    "module": "esnext",
     "lib": [
-      "es2020",
+      "es2015",
       "dom"
     ]
   },

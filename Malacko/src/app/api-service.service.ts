@@ -19,10 +19,10 @@ export class ApiServiceService {
   postData(data:any):Observable<any>{
     return this._http.post(`${this.getdata}`,data);
    }
-     
+
   getGeocoding():Observable<any>{
    return this._http.get(`${this.geturl}`);
-   
+
   }
   contactEmail(data:any):Observable<any>{
     return this._http.post(`${this.sendcontact}`,data);

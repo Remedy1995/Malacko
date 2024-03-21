@@ -12,57 +12,57 @@ export class ServicesComponent implements OnInit {
   ngOnInit(): void {
   }
 
- toggleDisplay:boolean=false;
- toggleDisplay1:boolean=false;
- toggleDisplay2:boolean=false;
- toggleDisplay3:boolean=false;
- toggleDisplay4:boolean=false;
+  toggleDisplay: boolean = false;
+  toggleDisplay1: boolean = false;
+  toggleDisplay2: boolean = false;
+  toggleDisplay3: boolean = false;
+  toggleDisplay4: boolean = false;
 
-seaReadMore(event:Event){
-  event.preventDefault();//prevent page from reloading
-  if(this.toggleDisplay===false){
-    this.toggleDisplay=true;
+  seaReadMore(event: Event) {
+    event.preventDefault();//prevent page from reloading
+    if (this.toggleDisplay === false) {
+      this.toggleDisplay = true;
+    }
+    else {
+      this.toggleDisplay = false;
+    }
   }
-  else{
-    this.toggleDisplay=false;
+  logisticsReadMore(event: Event) {
+    event.preventDefault();//prevent page from reloading
+    if (this.toggleDisplay1 === false) {
+      this.toggleDisplay1 = true;
+    }
+    else {
+      this.toggleDisplay1 = false;
+    }
   }
-}
-logisticsReadMore(event:Event){
-  event.preventDefault();//prevent page from reloading
-  if(this.toggleDisplay1===false){
-    this.toggleDisplay1=true;
+  customReadMore(event: Event) {
+    event.preventDefault();//prevent page from reloading
+    if (this.toggleDisplay2 === false) {
+      this.toggleDisplay2 = true;
+    }
+    else {
+      this.toggleDisplay2 = false;
+    }
   }
-  else{
-    this.toggleDisplay1=false;
-  }
-}
-customReadMore(event:Event){
-  event.preventDefault();//prevent page from reloading
-  if(this.toggleDisplay2===false){
-    this.toggleDisplay2=true;
-  }
-  else{
-    this.toggleDisplay2=false;
-  }
-}
 
-airReadMore(event:Event){
-  event.preventDefault();//prevent page from reloading
-  if(this.toggleDisplay3===false){
-    this.toggleDisplay3=true;
+  airReadMore(event: Event) {
+    event.preventDefault();//prevent page from reloading
+    if (this.toggleDisplay3 === false) {
+      this.toggleDisplay3 = true;
+    }
+    else {
+      this.toggleDisplay3 = false;
+    }
   }
-  else{
-    this.toggleDisplay3=false;
+  landReadMore(event: Event) {
+    event.preventDefault();//prevent page from reloading
+    if (this.toggleDisplay4 === false) {
+      this.toggleDisplay4 = true;
+    }
+    else {
+      this.toggleDisplay4 = false;
+    }
   }
-}
-landReadMore(event:Event){
-  event.preventDefault();//prevent page from reloading
-  if(this.toggleDisplay4===false){
-    this.toggleDisplay4=true;
-  }
-  else{
-    this.toggleDisplay4=false;
-  }
-}
 
 }
