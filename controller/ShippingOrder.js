@@ -3,20 +3,29 @@ const consignment = require('../helpers/helper');
 const sendEmail = require('../controller/email');//send email information to email user
 require('dotenv').config();
 const formatdate = require('../helpers/formatDate');
-const consign = new consignment("MALACK");
+const consign = new consignment("CARGO MOVER PRO");
 const axios = require('axios');
 
 exports.createShippingOrder = async (req, res, next) => {
+   console.log(req.body)
    const email = req.body.email;
+
+   if (!req.body.destination) {
+      res.status(404).json({
+         message: 'Please input your destination country to search'
+      })
+      return false;
+   }
    ShippingOrder.find({ 'email': new RegExp(email, 'i') }).then(data => {
+      console.log('my email data', data)
       if (data.length === 0) {
          //if email does not exist record new data;
-         const country = req.body.country.replace(/[^a-zA-Z ]/g, "");;
-         const destination = req.body.destination.replace(/[^a-zA-Z ]/g, "");
+         const country = req.body.country;
+         const destination = req.body.destination;
          const data = [];
          axios.get(process.env.MAP_URL + `${destination}`)
             .then(response => {
-               console.log('The link is ',process.env.MAP_URL)
+               console.log('The link is ', process.env.MAP_URL)
                data.push(response.data);
                data.forEach(async number => {
                   const geodata = number.results[0].locations[0].latLng;
@@ -30,21 +39,21 @@ exports.createShippingOrder = async (req, res, next) => {
                      country_latitude: latitude,
                      country_longitude: longitude,
                      email: email,
-                     ItemName: req.body.ItemName.replace(/[^a-zA-Z ]/g, ""),
-                     itemsDescription: req.body.itemsDescription.replace(/[^a-zA-Z ]/g, ""),
-                     orderDate: formatdate.getDate(),
+                     ItemName: req.body.ItemName,
+                     itemsDescription: req.body.itemsDescription,
+                     orderDate: req.body.order_date,
                      deliveryDate: req.body.date,
                      consignment_number: value,
-                     trackingstatus: req.body.trackingstatus.replace(/[^a-zA-Z ]/g, ""),
-                     remarks: req.body.remarks.replace(/[^a-zA-Z ]/g, ""),
-                     quantity: req.body.quantity.replace(/[^a-zA-Z ]/g, ""),
+                     trackingstatus: req.body.trackingstatus,
+                     remarks: req.body.remarks,
+                     quantity: req.body.quantity,
                      country: country,
-                     ShipperName: req.body.ShipperName.replace(/[^a-zA-Z ]/g, ""),
-                     ShipperAddress: req.body.ShipperAddress.replace(/[^a-zA-Z ]/g, ""),
-                     ShipperPhone: req.body.ShipperPhone.replace(/[^a-zA-Z ]/g, ""),
-                     RecieverName: req.body.ReceiverAddress.replace(/[^a-zA-Z ]/g, ""),
-                     ReceiverAddress: req.body.ReceiverAddress.replace(/[^a-zA-Z ]/g, ""),
-                     ReceiverPhone: req.body.ReceiverPhone.replace(/[^a-zA-Z ]/g, ""),
+                     ShipperName: req.body.ShipperName,
+                     ShipperAddress: req.body.ShipperAddress,
+                     ShipperPhone: req.body.ShipperPhone,
+                     RecieverName: req.body.RecieverName,
+                     ReceiverAddress: req.body.ReceiverAddress,
+                     ReceiverPhone: req.body.ReceiverPhone,
 
                   })
                   sendEmail.sendMail(createShipping);//send email
@@ -64,7 +73,7 @@ exports.createShippingOrder = async (req, res, next) => {
          //if email exists update the existing data;
          const country = req.body.country;
          const data = [];
-         const destination = req.body.destination.replace(/[^a-zA-Z ]/g, "");
+         const destination = req.body.destination;
          axios.get(process.env.MAP_URL + `${destination}`)
             .then(response => {
                data.push(response.data);
@@ -76,19 +85,24 @@ exports.createShippingOrder = async (req, res, next) => {
                   const value = consign.generate();
                   ShippingOrder.updateMany({ email: req.body.email },
                      {
-                        country: country, country_latitude: latitude, country_longitude: longitude, ItemName: req.body.ItemName.replace(/[^a-zA-Z ]/g, ""),
-                        itemsDescription: req.body.itemsDescription, orderDate: formatdate.getDate(), deliveryDate: req.body.date.replace(/[^a-zA-Z ]/g, ""),
-                        consignment_number: value, destination: destination, deliveryDate: req.body.date.replace(/[^a-zA-Z ]/g, ""),
+                        country: country,
+                        country_latitude: latitude,
+                        country_longitude: longitude,
+                        ItemName: req.body.ItemName,
+                        itemsDescription: req.body.itemsDescription,
+                        orderDate: req.body.order_date,
+                        deliveryDate: req.body.date,
                         consignment_number: value,
-                        trackingstatus: req.body.trackingstatus.replace(/[^a-zA-Z ]/g, ""),
-                        remarks: req.body.remarks.replace(/[^a-zA-Z ]/g, ""),
-                        quantity: req.body.quantity.replace(/[^a-zA-Z ]/g, ""),
-                        ShipperName: req.body.ShipperName.replace(/[^a-zA-Z ]/g, ""),
-                        ShipperAddress: req.body.ShipperAddress.replace(/[^a-zA-Z ]/g, ""),
-                        ShipperPhone: req.body.ShipperPhone.replace(/[^a-zA-Z ]/g, ""),
-                        RecieverName: req.body.ReceiverAddress.replace(/[^a-zA-Z ]/g, ""),
-                        ReceiverAddress: req.body.ReceiverAddress.replace(/[^a-zA-Z ]/g, ""),
-                        ReceiverPhone: req.body.ReceiverPhone.replace(/[^a-zA-Z ]/g, ""),
+                        destination: destination,
+                        trackingstatus: req.body.trackingstatus,
+                        remarks: req.body.remarks,
+                        quantity: req.body.quantity,
+                        ShipperName: req.body.ShipperName,
+                        ShipperAddress: req.body.ShipperAddress,
+                        ShipperPhone: req.body.ShipperPhone,
+                        RecieverName: req.body.RecieverName,
+                        ReceiverAddress: req.body.ReceiverAddress,
+                        ReceiverPhone: req.body.ReceiverPhone,
                      },
                      function (err, docs) {
                         if (err) res.json(err);
@@ -98,11 +112,16 @@ exports.createShippingOrder = async (req, res, next) => {
                         const doc = {
                            email: req.body.email,
                            consignment_number: value,
-                           itemsDescription: req.body.itemsDescription
+                           itemsDescription: req.body.itemsDescription,
+                           RecieverName: req.body.RecieverName
                         }
                         console.log(doc.consignment_number)
                         sendEmail.sendMail(doc);//send email
                      });
+               })
+            }).catch(error => {
+               res.status(500).json({
+                  message: error.message
                })
             })
       }
@@ -114,7 +133,7 @@ exports.createShippingOrder = async (req, res, next) => {
 exports.consignment = async (req, res, next) => {
    //generate consignment number to the front end
    try {
-      const cons = new consignment('Malark');
+      const cons = new consignment('CARGO MOVER PRO');
       const gen = cons.generate();
       res.json({ message: gen });
       console.log(gen)
@@ -165,6 +184,7 @@ exports.updateTrackingStatus = (req, res) => {
    const trackingstatus = req.body.status_code;
 
    var email_address = '';
+   var RecieverName = '';
    ShippingOrder.find({ 'consignment_number': new RegExp(consignment_code, 'i') }).then(data => {
       if (data.length === 0) {
          res.json({
@@ -175,6 +195,7 @@ exports.updateTrackingStatus = (req, res) => {
          //let get our email address from the data;
          data.map(info => {
             email_address = info.email;
+            RecieverName  = info.RecieverName;
          })
          //if the data exist update our tracking status
 
@@ -189,7 +210,8 @@ exports.updateTrackingStatus = (req, res) => {
          const doc = {
             email: email_address,
             consignment_number: consignment_code,
-            trackingstatus: trackingstatus
+            trackingstatus: trackingstatus,
+            RecieverName : RecieverName
          }
          sendEmail.updateTrackingCodeEmail(doc);//send new tracking status to email
       }

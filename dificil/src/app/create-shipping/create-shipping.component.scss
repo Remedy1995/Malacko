@@ -1,0 +1,133 @@
+select {
+    width: inherit;
+    height: 40px;
+}
+
+.contact-style {
+    position: relative;
+    bottom: 100px;
+}
+
+label {
+    position: relative;
+    left: 14px;
+}
+
+.select-data {
+
+    border-radius: 10px;
+    box-shadow: 1px 1px 1px 1px grey;
+    height: 50px;
+}
+
+.select-date {
+    border-radius: 10px;
+    box-shadow: 1px 1px 1px 1px grey;
+    height: 50px;
+    position: relative;
+    left: 41px;
+    padding: 10px;
+    opacity: 0.6;
+    width: 280px;
+    margin-top: 10px
+}
+
+div.main_grid_contact {
+    position: relative;
+}
+
+@media (max-width:780px) {
+    .contact-style {
+        position: relative;
+        bottom: 50px;
+    }
+
+    div.main_grid_contact {
+        position: relative;
+        left: -2px;
+    }
+
+}
+
+
+@media only screen and (min-width: 200px) and (max-width: 780px) {
+    button.submit.btn {
+        width: auto;
+    }
+
+    label {
+        position: relative;
+        left: 14px;
+        top: 5px;
+    }
+
+    .select-date {
+        border-radius: 10px;
+        box-shadow: 1px 1px 1px 1px grey;
+        height: 50px;
+        position: relative;
+        left: 4px;
+        padding: 10px;
+        opacity: 0.6;
+        width: -webkit-fill-available;
+        margin-top: 10px;
+    }
+
+    h6 {
+        white-space: nowrap;
+        font-size: 13px;
+        font-weight: 600;
+    }
+
+}
+
+
+@media only screen and (min-width: 768px) and (max-width: 1600px) {
+    .select-date {
+        border-radius: 10px;
+        box-shadow: 1px 1px 1px 1px grey;
+        height: 50px;
+        position: relative;
+        left: 0px;
+        padding: 10px;
+        opacity: 0.6;
+        width: -webkit-fill-available;
+        margin-top: 10px;
+        top: 5px;
+    }
+
+    label {
+        position: relative;
+        left: 14px;
+        top: 7px;
+        padding: 5px;
+    }
+
+    button.submit.btn {
+        width: auto;
+    }
+}
+
+
+
+@media only screen and (min-width: 300px) and (max-width: 480px) {
+
+    label {
+        position: relative;
+        left: 14px;
+        top: 5px;
+    }
+
+    .select-date {
+        border-radius: 10px;
+        box-shadow: 1px 1px 1px 1px grey;
+        height: 50px;
+        position: relative;
+        left: 2px;
+        padding: 10px;
+        opacity: 0.6;
+        width: -webkit-fill-available;
+        margin-top: 10px;
+    }
+
+}

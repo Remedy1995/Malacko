@@ -1,0 +1,29 @@
+#map {
+    height: 500px;
+    width: auto;
+  }
+
+  .contact-style{
+    position: relative;
+    bottom: 100px;
+}
+@media all and (max-width : 736px) {
+
+#map{
+  display: none;
+}
+.main_grid_contact {
+  width: 100%;
+  position: relative;
+  left: 0px;
+  top: 9px;
+}
+
+
+.contact-style{
+  position: relative;
+  bottom: 50px;
+}
+}
+
+

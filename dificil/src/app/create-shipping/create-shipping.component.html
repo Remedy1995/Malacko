@@ -1,0 +1,116 @@
+<app-header></app-header>
+<!-- //header -->
+
+<!-- inner banner -->
+<div class="inner-banner" id="home">
+	<div class="container">
+
+	</div>
+</div>
+<!-- inner banner -->
+
+<!-- contact -->
+<section class="contact py-5 my-lg-5">
+	<h2 class="heading text-center mb-sm-5 mb-4"> Get In Touch </h2>
+
+	<div *ngIf="showRoutespinner;else other1"><app-spinner></app-spinner></div>
+	<ng-template #other1>
+		<div class="map">
+			<div class="main_grid_contact">
+				<div class="form">
+					<h3 class="text-capitalize mb-2">Create Tracking Order</h3>
+					<form [formGroup]="shippingInformation">
+						<div class="input-group">
+							<input type="text" class="margin2"  formControlName="country" placeholder="Final Destination" required="" >
+							<input type="text" placeholder="Current Location" formControlName="destination" required="">
+						</div>
+
+						<div class="input-group">
+							<input type="email" class="margin2" formControlName="email" placeholder="mail@example.com" style="text-transform: inherit;"  required="">
+							<input type="text" name="number" formControlName="ItemName" placeholder="Item Name"  required="">
+						</div>
+						<div class="input-group">
+							<label>Tracking Status</label>
+                            <select name="status" class="select-data" formControlName="trackingstatus">
+                                <option value="On Hold">On Hold</option>
+                                <option value="Processing">Processing</option>
+                                <option value="In-transit">In-transit</option>
+                                <option value="Shipped">Shipped</option>
+                                <option value="Delivered">Delivered</option>
+                              </select>
+                        </div>
+						<div class="input-group1">
+						<label style="    position: relative;
+            top: 19px;">Expected Date Of Delivery</label>
+                            <input type="date" formControlName="date"  required="" class="select-date">
+                        </div>
+                        <div class="input-group1">
+                          <label style="    position: relative;
+                          top: 19px;
+                      ">Order Date</label>
+                                          <input type="date" formControlName="order_date"  required="" class="select-date">
+                                      </div>
+                           <br>
+						<h6><input type="checkbox" (click)="toggleInformation()" formControlName="information">&nbsp;Provide additional information</h6>
+						<div class="additional-information" *ngIf="additional_information">
+						<div class="input-group">
+							<input type="text" class="margin2"  formControlName="quantity" placeholder="Quantity" required="" >
+							<input type="text" placeholder="Remarks" formControlName="remarks" required="">
+						</div>
+
+					<div class="input-group">
+						<textarea rows="4" cols="50"  formControlName="itemsDescription"  placeholder="item description"></textarea>
+					</div>
+					<div class="input-group">
+						<input type="email" class="margin2" formControlName="ShipperName" placeholder="Shipper Name" style="text-transform: inherit;"  required="">
+						<input type="text"  formControlName="ShipperAddress" placeholder="Shipper Address"  required="">
+					</div>
+					<div class="input-group">
+						<input type="text" class="margin2" formControlName="ShipperPhone" placeholder="Shipper Phone" style="text-transform: inherit;"  required="">
+						<input type="text"  formControlName="RecieverName" placeholder="Reciever Name"  required="">
+					</div>
+					<div class="input-group">
+						<input type="text" class="margin2" formControlName="ReceiverAddress" placeholder="Receiver Address" style="text-transform: inherit;"  required="">
+						<input type="text" formControlName="ReceiverPhone" placeholder="Receiver Phone"  required="">
+					</div>
+						</div>
+						<div class="input-group1">
+							<button class="submit btn" (click)="submit()">
+								<div *ngIf="showspinner;else other"><app-spinner></app-spinner></div>
+								<ng-template #other>  Create</ng-template> </button>&nbsp;&nbsp;
+								<button class="submit btn" (click)="Update()">
+								Update
+								  </button>
+
+
+					</div>
+					</form>
+				</div>
+
+
+        <app-contact-information></app-contact-information>
+			</div>
+		</div>
+	</ng-template>
+
+</section>
+<!-- //contact -->
+
+<!-- footer-top -->
+
+<!-- <section class="footer-top py-5">
+	<div class="container">
+		<div class="row footer-top-grid">
+			<div class="col-sm-6">
+				<h3>Contact Us</h3>
+				<p>Call us, we are 24/7 Helpline</p>
+			</div>
+			<div class="col-sm-6 text-sm-right mt-sm-0 mt-3">
+				<h3><span class="fa fa-phone" aria-hidden="true"></span> </h3>
+			</div>
+		</div>
+	</div>
+</section> -->
+<app-contact-number></app-contact-number>
+<!-- //footer-top -->
+<app-footer></app-footer>

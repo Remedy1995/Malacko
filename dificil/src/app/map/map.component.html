@@ -1,0 +1,32 @@
+
+
+<input type="text" placeholder="input text" [(ngModel)]="filterText" />
+
+{{filterText}}
+<table class="table">
+    <thead>
+    <tr>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>Email Address</th>
+    <th>Country</th>
+    <th>phone</th>
+    </tr>
+    </thead>
+           <tbody *ngIf="!showText;else other">
+          
+            <tr *ngFor="let persons of person">
+            <td>{{persons.first_name}}</td>
+            <td>{{persons.last_name}}</td>
+            <td>{{persons.email}}</td>
+            <td>{{persons.gender}}</td>
+            <td>{{persons.ip_address}}</td>
+          
+            </tr>
+            <tr>
+        </tbody>
+      <ng-template #other>
+      No information available
+      </ng-template>
+</table>
+

@@ -1,0 +1,50 @@
+.head-style{
+    text-transform: uppercase;
+    font-size: 30px;
+    letter-spacing: 1px;
+    font-weight: 600;
+    position: relative;
+    top: 30px;
+}
+.growth{
+    text-align: center;
+    position: relative;
+    top: 20px;
+    color: rgb(255,255,255);
+}
+
+.history{
+    color: rgba(255,255,255,0.9);
+    position: relative;
+    left: 30px;
+}
+
+ @media (max-width: 736px){ 
+  h3.heading.text-center.mb-5.head-style{
+        text-transform: uppercase;
+        font-size: 20px;
+        letter-spacing: 1px;
+        font-weight: 600;
+        position: relative;
+        top: 30px;
+    }
+    .history{
+        color: rgba(255, 255, 255, 0.9);
+        font-size: 15px;
+        position: relative;
+        padding: 0px 20px 0px 11px;
+        left: 2px;
+    }
+
+    .growth{
+        position: relative;
+        top: 20px;
+        color: rgb(255, 255, 255);
+        margin-left: -33px;
+    }
+    .stats-right{
+        position: relative;
+        top: -20px;
+        left: 20px;
+    }
+}

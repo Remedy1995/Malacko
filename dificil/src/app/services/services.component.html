@@ -1,0 +1,162 @@
+<app-header></app-header>
+<div class="inner-banner" id="home">
+	<div class="container">
+
+	</div>
+</div>
+<section class="services py-5 bg-clr" id="services">
+	<div class="container py-lg-5">
+		<div class="row mt-lg-3">
+			<div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 mb-md-0 mb-4">
+				<h4 class="heading mt-3 ml-3">We Provide Safe & Secure Shipping Services around the world</h4>
+			</div>
+			<div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
+				<div class="our-services-wrapper mb-60">
+					<div class="services-inner">
+						<div class="our-services-icon">
+							<span class="fa fa-ship" aria-hidden="true"></span>
+						</div>
+						<div class="our-services-text">
+							<h4>Sea freight</h4>
+							<p>Whether you have full container loads, dangerous goods,LCL or large over dimensional project cargo, CargoMoverPro.</p>
+									<p  *ngIf="toggleDisplay;">
+                            With our own consolidation services, you can rely on timely and efficient service. Our experienced staff offer a full range of documentation including letters of credits, banking, insurance and consular legalization among others to assist with your export.
+						    </p>
+							<a href="#" (click)="seaReadMore($event)"><p style="color: turquoise;
+    font-weight: 400;">{{!toggleDisplay?"Read More...":"Read Less.."}}</p></a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
+				<div class="our-services-wrapper mb-60">
+					<div class="services-inner">
+						<div class="our-services-icon">
+							<span class="fa fa-truck" aria-hidden="true"></span>
+						</div>
+						<div class="our-services-text">
+							<h4>Logistics Solutions</h4>
+							<p>
+								Whether you sell to industrial, high-end department stores, mass merchandisers, or directly to end user via the Internet,
+
+								<p  *ngIf="toggleDisplay1">
+									CargoMoverPro will take care of your company and your clients.  With our own modern facilities centrally located at various locations around Dallas and other parts of the Ali Free Zone, the client’s distribution capabilities and storage options are maximized.</p>
+									<a href="#" (click)="logisticsReadMore($event)"><p style="color: turquoise; font-weight: 400;">{{!toggleDisplay1?"Read More...":"Read Less.."}}</p></a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
+				<div class="our-services-wrapper mb-md-0 mb-60">
+					<div class="services-inner">
+						<div class="our-services-icon">
+							<span class="fa fa-ship" aria-hidden="true"></span>
+						</div>
+						<div class="our-services-text">
+							<h4>Custom Solutions</h4>
+							<p>We at CargoMoverPro understand the need of the global trading community to have a reliable and exclusive organization to be <p  *ngIf="toggleDisplay2;">
+								their IOR (Importer Of Records) as well as EOR (Exporter of Record) to ensure they can easily expand cross border without the hindrance of establishing legal entities in each country they wish to operate. We have in-depth knowledge of customs, logistics and supply chain solutions which ensure us to address our customer’s needs in developing reliable solutions.</p>
+								<a href="#" (click)="customReadMore($event)"><p style="color: turquoise; font-weight: 400;">{{!toggleDisplay2?"Read More...":"Read Less.."}}</p></a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
+				<div class="our-services-wrapper mb-md-0 mb-60">
+					<div class="services-inner">
+						<div class="our-services-icon">
+							<span class="fa fa-plane" aria-hidden="true"></span>
+						</div>
+						<div class="our-services-text">
+							<h4>Air Freight</h4>
+							<p>As a leader in global air freight forwarding, CargoMoverPro excels in providing tailored transportation.
+
+								<p  *ngIf="toggleDisplay3;">
+									Whether it’s direct or consolidated shipments, small packages or large cargo including dangerous goods, CargoMoverPro can handle your airfreight needs. Our trained airfreight specialists can service your time-sensitive shipments to and from any place in the world.
+									  Our worldwide network of offices and dependable partners can guarantee delivery of any shipment, anywhere on the globe.
+									  </p>
+								   <a href="#" (click)="airReadMore($event)"><p style="color: turquoise; font-weight: 400;">{{!toggleDisplay3?"Read More...":"Read Less.."}}</p></a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
+				<div class="our-services-wrapper">
+					<div class="services-inner">
+						<div class="our-services-icon">
+							<span class="fa fa-truck" aria-hidden="true"></span>
+						</div>
+						<div class="our-services-text">
+							<h4>Land Freight</h4>
+							<p>With our extensive fleet, daily departures all over Europe, own strategically placed offices in Poland and the Nordic countries and a strong network of <p  *ngIf="toggleDisplay4;">
+								European partners, we make sure that your cargo will not be left behind. We offer full load (FTL), part load (PTL) and groupage transportation depending on the weight and size of your cargo. For any cargo that does not fit the standards, be it due to size, weight or other challenges, our project forwarding team is at your disposal.</p>
+								<a href="#" (click)="landReadMore($event)"><p style="color: turquoise; font-weight: 400;">{{!toggleDisplay4?"Read More...":"Read Less.."}}</p></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- //services -->
+
+<!--/Blog-Posts-->
+<section class="banner-bottom-w3layouts py-5" id="blog">
+	<div class="container">
+		<div class="inner-sec-w3ls py-lg-5 py-md-3">
+			<!--/services-grids-->
+			<div class="row blog-sec">
+				<div class="col-lg-4 manager-img mb-lg-0 mb-4">
+					<h4 class="heading"> We help clients transport their goods safely.</h4>
+					<p class="mt-4">We always handle your single shipments and your frequent deliveries with equal amount of professionalism and commitment.</p>
+
+				</div>
+				<div class="col-lg-4 col-md-6 about-in blog-grid-info text-left">
+					<div class="card img">
+						<div class="card-body img">
+							<img src="assets/images/blog1.jpg" alt="" class="img-fluid">
+							<div class="blog-des mt-3">
+								<h5 class="card-title mt-4">Shipping Cargo Transport</h5>
+								<p class="card-text">We always handle your single shipments and your frequent deliveries with equal amount of professionalism and commitment.
+								</p>
+								<a href="#"> Read More </a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6 about-in blog-grid-info text-left mt-md-0 mt-5">
+					<div class="card img">
+						<div class="card-body img">
+							<img src="assets/images/blog2.jpg" alt="" class="img-fluid">
+							<div class="blog-des mt-3">
+								<h5 class="card-title mt-4">Shipping Cargo Transport</h5>
+								<p class="card-text">We aim to be the first choice in the Nordic countries for groupage, part load and full load transports and for special equipment.
+								</p>
+								<a href="#"> Read More </a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!--//Blog-Posts-->
+
+<!-- footer-top -->
+<!-- <section class="footer-top py-5">
+	<div class="container">
+		<div class="row footer-top-grid">
+			<div class="col-sm-6">
+				<h3>Contact Us</h3>
+				<p>Call us, we are 24/7 Helpline</p>
+			</div>
+			<div class="col-sm-6 text-sm-right mt-sm-0 mt-3">
+				<h3><span class="fa fa-phone" aria-hidden="true"></span> </h3>
+			</div>
+		</div>
+	</div>
+</section> -->
+<app-contact-number></app-contact-number>
+<!-- //footer-top -->
+<app-footer></app-footer>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Template</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+        }
+
+        .container {
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .header {
+            background-color: #00BCD4;
+            text-align: center;
+            padding: 10px;
+            color: #fff;
+        }
+
+        .body {
+            background-color: #ffffff;
+            padding: 20px;
+            text-align: left;
+        }
+
+        .footer {
+            background-color: #00BCD4;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            font-weight: bold;
+        }
+
+        .view-button {
+            display: inline-block;
+            padding: 10px 20px;
+            font-weight: bold;
+            background-color: #000;
+            border-radius: 20px;
+            text-decoration: none;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>CargoMoverPro</h1>
+            <p style="font-weight: bold; font-style: oblique;">Your Number 1 Logistics Service Provider</p>
+        </div>
+        <div class="body">
+            <p style="font-size: 17px; color: blue; font-weight: bold;">Hello Admin,</p>
+            <div>
+                 <p style="color: #000; padding: 5px; font-size: 17px;">Admin, you have received a new request for your attention</p>
+                 <h1>Details of Request</h1>
+                 <p style="font-size: 17px; color: #000;"><strong>Email:</strong> {{params.email}}</p>
+                 <p style="font-size: 17px; color: #000;"><strong>Subject:</strong> {{params.subject}}</p>
+                 <p style="font-size: 17px; color: #000;"><strong>Phone:</strong> {{params.phone}}</p>
+                 <p style="font-size: 17px; color: #000;"><strong>Full Name:</strong> {{params.fullname}}</p>
+                 <p style="font-size: 17px; color: #000;"><strong>Message:</strong> {{params.message}}</p>
+            </div>
+        </div>
+        <div class="footer">
+            <p>© 2023 CargoMoverPro Company. All Rights Reserved |CargoMoverPro Company.</p>
+        </div>
+    </div>
+</body>
+</html>
