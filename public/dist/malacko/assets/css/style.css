@@ -198,6 +198,8 @@ nav {
   font-weight: 600;
   padding: 3px 0;
   border: none;
+  position: relative;
+    top: -29px;
 }
 
 #logo a span.fa {
@@ -1987,6 +1989,8 @@ ul.team-social li a span.fa {
 
   #logo a {
     font-size: 16px;
+    position: relative;
+    top: -48px;
   }
 
   .inner-banner {
