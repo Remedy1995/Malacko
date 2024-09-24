@@ -10,7 +10,7 @@ apiKey.apiKey = process.env.EMAIL_API;
 //   let sendSmtpEmail = new SibApiV3Sdk.SendSmtpEmail();
 //   sendSmtpEmail.subject = "My {{params.subject}}";
 //   sendSmtpEmail.htmlContent = "<html><body><h3>Hello {{params.username}},</h3><p>Thank you for your recent order your consignment code is {{params.consignment}}.</p><p>You can track your goods using this consignment code.</p><p>Click on the web link to track your goods <a href='https://www.cargomoverpro.com/view-map'>CargoMoverPro</a><p>{{params.items}}</p><strong style='color:red;'>Best Wishes</strong></body></html>";
-//   sendSmtpEmail.sender = { "name": "CARGO MOVER PRO  COMPANY, LTD", "email": "info@cargomoverpro.com" };
+//   sendSmtpEmail.sender = { "name": "CARGO MOVER PRO  COMPANY, LTD", "email": "cargomoverpro@gmail.com" };
 //   sendSmtpEmail.to = [{ "email": emailInfo.email, "name": replace }];
 //   sendSmtpEmail.headers = { "Some-Custom-Name": "unique-id-1234" };
 //   sendSmtpEmail.params = 
@@ -46,7 +46,7 @@ exports.sendMail = (emailInfo) => {
   sendSmtpEmail.htmlContent = dynamicHtmlContent;
     const replace = emailInfo.email.replace("@gmail.com", "");
   //   sendSmtpEmail.htmlContent = "<html><body><h3>Hello {{params.username}},</h3><p>Thank you for your recent order your consignment code is {{params.consignment}}.</p><p>You can track your goods using this consignment code.</p><p>Click on the web link to track your goods <a href='https://www.cargomoverpro.com/view-map'>CargoMoverPro</a><p>{{params.items}}</p><strong style='color:red;'>Best Wishes</strong></body></html>";
-    sendSmtpEmail.sender = { "name": "CARGO MOVER PRO  COMPANY, LTD", "email": "info@cargomoverpro.com" };
+    sendSmtpEmail.sender = { "name": "CARGO MOVER PRO  COMPANY, LTD", "email": "cargomoverpro@gmail.com" };
    sendSmtpEmail.to = [{ "email": emailInfo.email, "name": replace }];
     sendSmtpEmail.headers = { "Some-Custom-Name": "unique-id-1234" };
      sendSmtpEmail.params = { "subject":"CARGO MOVER PRO Tracking Order"};
@@ -95,9 +95,9 @@ exports.sendMail = (emailInfo) => {
 //   let sendSmtpEmail = new SibApiV3Sdk.SendSmtpEmail();
 //   sendSmtpEmail.subject = "My {{params.subject}}";
 //   sendSmtpEmail.htmlContent = "<html><body><h3>Hello {{params.fullname}},</h3><p>We have recieived your message, a customer representative will be in touch with you shortly.<p>{{params.message}}</p></body></html>";
-//   sendSmtpEmail.sender = { "name": "CARGO MOVER PRO  COMPANY, LTD", "email": "info@cargomoverpro.com" };
+//   sendSmtpEmail.sender = { "name": "CARGO MOVER PRO  COMPANY, LTD", "email": "cargomoverpro@gmail.com" };
 //   sendSmtpEmail.to = [{ "email": data[2], "name": data[0] }];
-//   sendSmtpEmail.cc = [{ "email": "info@cargomoverpro.com", "name": "CARGO MOVER PRO" }];
+//   sendSmtpEmail.cc = [{ "email": "cargomoverpro@gmail.com", "name": "CARGO MOVER PRO" }];
 //   sendSmtpEmail.headers = { "Some-Custom-Name": "unique-id-1234" };
 //   sendSmtpEmail.params = { "subject": data[3], "fullname": data[0], "message": data[1] };
 
@@ -135,7 +135,7 @@ exports.contactUsEmail = async (req,res) => {
   sendSmtpEmail.subject = "My {{params.subject}}";
   sendSmtpEmail.htmlContent = dynamicHtmlContent;
   //   sendSmtpEmail.htmlContent = "<html><body><h3>Hello {{params.username}},</h3><p>Thank you for your recent order your consignment code is {{params.consignment}}.</p><p>You can track your goods using this consignment code.</p><p>Click on the web link to track your goods <a href='https://www.cargomoverpro.com/view-map'>CargoMoverPro</a><p>{{params.items}}</p><strong style='color:red;'>Best Wishes</strong></body></html>";
-    sendSmtpEmail.sender = { "name": "CARGO MOVER PRO  COMPANY, LTD", "email": "info@cargomoverpro.com" };
+    sendSmtpEmail.sender = { "name": "CARGO MOVER PRO  COMPANY, LTD", "email": "cargomoverpro@gmail.com" };
    sendSmtpEmail.to = [{ "email": email, "name": fullname}];
     sendSmtpEmail.headers = { "Some-Custom-Name": "unique-id-1234" };
      sendSmtpEmail.params = { "subject":subject};
@@ -175,8 +175,8 @@ function sendEmailToAdmin(fullname,message,email,subject,phone){
   sendSmtpEmail.subject = "My {{params.subject}}";
   sendSmtpEmail.htmlContent = dynamicHtmlContent;
   //   sendSmtpEmail.htmlContent = "<html><body><h3>Hello {{params.username}},</h3><p>Thank you for your recent order your consignment code is {{params.consignment}}.</p><p>You can track your goods using this consignment code.</p><p>Click on the web link to track your goods <a href='https://www.cargomoverpro.com/view-map'>CargoMoverPro</a><p>{{params.items}}</p><strong style='color:red;'>Best Wishes</strong></body></html>";
-    sendSmtpEmail.sender = { "name": "CARGO MOVER PRO  COMPANY, LTD", "email": "info@cargomoverpro.com" };
-   sendSmtpEmail.to = [{ "email": "info@cargomoverpro.com", "name": fullname}];
+    sendSmtpEmail.sender = { "name": "CARGO MOVER PRO  COMPANY, LTD", "email": "cargomoverpro@gmail.com" };
+   sendSmtpEmail.to = [{ "email": "cargomoverpro@gmail.com", "name": fullname}];
     sendSmtpEmail.headers = { "Some-Custom-Name": "unique-id-1234" };
      sendSmtpEmail.params = { "subject":subject};
      apiInstance.sendTransacEmail(sendSmtpEmail).then(function (data) {
@@ -212,9 +212,9 @@ function sendEmailToAdmin(fullname,message,email,subject,phone){
 //   let sendSmtpEmail = new SibApiV3Sdk.SendSmtpEmail();
 //   sendSmtpEmail.subject = "Update On Tracking Status";
 //   sendSmtpEmail.htmlContent = "<html><body><h3>Hello {{params.email}},</h3><p>Your tracking order has been updated to {{params.subject}}.<p>Your goods will be delivered in the next few days.Thanks</p></body></html>";
-//   sendSmtpEmail.sender = { "name": "CARGO MOVER PRO  COMPANY, LTD", "email": "info@cargomoverpro.com" };
+//   sendSmtpEmail.sender = { "name": "CARGO MOVER PRO  COMPANY, LTD", "email": "cargomoverpro@gmail.com" };
 //   sendSmtpEmail.to = [{ "email": docs.email, "name": docs.email }];
-//   sendSmtpEmail.cc = [{ "email": "info@cargomoverpro.com", "name": "CARGO MOVER PRO  COMPANY, LTD" }];
+//   sendSmtpEmail.cc = [{ "email": "cargomoverpro@gmail.com", "name": "CARGO MOVER PRO  COMPANY, LTD" }];
 //   sendSmtpEmail.headers = { "Some-Custom-Name": "unique-id-1234" };
 //   sendSmtpEmail.params = { "subject": docs.trackingstatus, "consignment": docs.consignment_number, "email": docs.email };
 //   apiInstance.sendTransacEmail(sendSmtpEmail).then(function (data) {
@@ -246,7 +246,7 @@ exports.updateTrackingCodeEmail = (emailInfo) => {
   sendSmtpEmail.htmlContent = dynamicHtmlContent;
     const replace = emailInfo.email.replace("@gmail.com", "");
   //   sendSmtpEmail.htmlContent = "<html><body><h3>Hello {{params.username}},</h3><p>Thank you for your recent order your consignment code is {{params.consignment}}.</p><p>You can track your goods using this consignment code.</p><p>Click on the web link to track your goods <a href='https://www.cargomoverpro.com/view-map'>CargoMoverPro</a><p>{{params.items}}</p><strong style='color:red;'>Best Wishes</strong></body></html>";
-    sendSmtpEmail.sender = { "name": "CARGO MOVER PRO  COMPANY, LTD", "email": "info@cargomoverpro.com" };
+    sendSmtpEmail.sender = { "name": "CARGO MOVER PRO  COMPANY, LTD", "email": "cargomoverpro@gmail.com" };
    sendSmtpEmail.to = [{ "email": emailInfo.email, "name": replace }];
     sendSmtpEmail.headers = { "Some-Custom-Name": "unique-id-1234" };
      sendSmtpEmail.params = { "subject":"CARGO MOVER PRO Tracking Order"};
