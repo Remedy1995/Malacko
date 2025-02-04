@@ -1,6 +1,6 @@
 import { NgModule} from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MapComponent } from './map/map.component';
@@ -23,7 +23,17 @@ import { FooterComponent } from './partials/footer/footer.component';
 import { UpdateTrackingComponent } from './update-tracking/update-tracking.component';
 import { ContactInformationComponent } from './contact-information/contact-information.component';
 import { ContactNumberComponent } from './contact-number/contact-number.component';
-
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { DashboardHeaderComponent } from './partials/dashboard-header/dashboard-header.component';
+import { SidebarComponent } from './partials/sidebar/sidebar.component';
+import { AdminCreateTrackingOrderComponent } from './admin-create-tracking-order/admin-create-tracking-order.component';
+import { DashboardFooterComponent } from './partials/dashboard-footer/dashboard-footer.component';
+import { CreateSubscriptionComponent } from './create-subscription/create-subscription.component';
+import { AuthLoginComponent } from './auth-login/auth-login.component';
+import { AuthenticationInterceptor } from './authentication.interceptor';
+import { SignupComponent } from './signup/signup.component';
+import { DatePipe, TitleCasePipe } from '@angular/common';
+import { AccountProfileComponent } from './account-profile/account-profile.component';
 
 
 
@@ -44,10 +54,19 @@ import { ContactNumberComponent } from './contact-number/contact-number.componen
     FooterComponent,
     UpdateTrackingComponent,
     ContactInformationComponent,
-    ContactNumberComponent
+    ContactNumberComponent,
+    DashboardComponent,
+    DashboardHeaderComponent,
+    SidebarComponent,
+    AdminCreateTrackingOrderComponent,
+    DashboardFooterComponent,
+    CreateSubscriptionComponent,
+    AuthLoginComponent,
+    SignupComponent,
+    AccountProfileComponent
   ],
   imports: [
- 
+
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
@@ -56,13 +75,16 @@ import { ContactNumberComponent } from './contact-number/contact-number.componen
     LeafletModule,
    BrowserAnimationsModule,
 
-  
-    
-    
+
+
+
   ],
 
   providers: [
-    CookieService
+    CookieService,
+    DatePipe,
+    TitleCasePipe,
+    {provide :HTTP_INTERCEPTORS,useClass:AuthenticationInterceptor,multi : true}
   ],
   bootstrap: [AppComponent]
 })

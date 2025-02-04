@@ -1,0 +1,220 @@
+
+
+    <div id="app-layout">
+    <!-- Topbar Start -->
+    <app-dashboard-header></app-dashboard-header>
+        <!-- end Topbar -->
+
+        <!-- Left Sidebar Start -->
+      <app-sidebar></app-sidebar>
+        <!-- Left Sidebar End -->
+
+        <!-- ============================================================== -->
+        <!-- Start Page Content here -->
+        <!-- ============================================================== -->
+
+        <div class="content-page">
+            <div class="content">
+
+                <!-- Start Content-->
+                <div class="container-fluid">
+
+                    <!-- <div class="py-3 d-flex align-items-sm-center flex-sm-row flex-column">
+                        <div class="flex-grow-1">
+                            <h4 class="fs-18 fw-semibold m-0">Create Tracking Request</h4>
+                        </div>
+
+                        <div class="text-end">
+                            <ol class="breadcrumb m-0 py-0">
+                                <li class="breadcrumb-item"><a href="javascript: void(0);">Forms</a></li>
+                                <li class="breadcrumb-item active">Form Pickers</li>
+                            </ol>
+                        </div>
+                    </div> -->
+
+                    <!-- Advance Form -->
+                    <div class="row">
+                        <div class="col-12 mt-4">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5 class="card-title mb-0">Create Logistics Order</h5>
+                                </div>
+                                <!-- end card header -->
+
+                                <div class="card-body">
+
+
+
+                                        <form [formGroup]="shippingInformation">
+                                          <div class="row">
+
+                                         <div class="mb-3 col-xl-6">
+
+                                            <input type="text"  class="form-control"  formControlName="country" placeholder="Final Destination" required="" >
+
+                                          </div>
+
+                                          <div class="mb-3 col-xl-6">
+                                            <input type="text" placeholder="Current Location" formControlName="destination" class="form-control" required="">
+                                          </div>
+
+                                        </div>
+
+                                        <div class="row">
+                                         <div class="mb-3 col-xl-6">
+
+                                            <input type="email"  class="form-control" formControlName="email" placeholder="mail@example.com" style="text-transform: inherit;"  required="">
+
+                                          </div>
+
+
+                                          <div class="mb-3 col-xl-6">
+                                            <input type="text" name="number" formControlName="ItemName" class="form-control" placeholder="Item Name"  required="">
+                                          </div>
+                                          </div>
+
+
+                                          <div class="row">
+                                         <div class="mb-3 col-xl-6">
+
+                                            <label>Tracking Status</label>
+                                                          <select name="status" class="form-control" formControlName="trackingstatus">
+                                                              <option value="On Hold">On Hold</option>
+                                                              <option value="Processing">Processing</option>
+                                                              <option value="In-transit">In-transit</option>
+                                                              <option value="Shipped">Shipped</option>
+                                                              <option value="Delivered">Delivered</option>
+                                                            </select>
+                                                      </div>
+                                          <div class="mb-3 col-xl-6">
+                                          <label>Expected Date Of Delivery</label>
+                                                          <input type="date" formControlName="date"  required="" class="form-control">
+                                                      </div>
+                                                       </div>
+
+
+                                                       <div class="row">
+
+
+                                                      <div class="mb-3 col-xl-12">
+                                                        <label>Order Date</label>
+                                                                        <input type="date" formControlName="order_date"  required="" class="form-control">
+                                                                    </div>
+                                                                  </div>
+
+
+
+                                                <div>
+
+                                              <input type="checkbox" (click)="toggleInformation()" formControlName="information" class="mx-1 mb-3" >
+                                              <label>Provide additional information</label>
+                                            </div>
+
+
+
+                                            <div class="additional-information" *ngIf="additional_information">
+
+                                              <div class="row">
+                                              <div class="mb-3 col-xl-12">
+
+
+                                          <input type="text"  class="form-control"  formControlName="quantity" placeholder="Quantity" required="" >
+
+                                            </div>
+                                          </div>
+
+
+                                          <div class="row">
+
+                                            <div class="mb-3 col-xl-12">
+                                              <input type="text" placeholder="Remarks" formControlName="remarks" required="" class="form-control">
+                                            </div>
+
+
+                                       <div class="mb-3">
+
+                                          <textarea rows="4" cols="5" class="form-control" formControlName="itemsDescription"  placeholder="item description"></textarea>
+                                        </div>
+                                       <div class="mb-3">
+                                          <input type="email"  class="form-control" formControlName="ShipperName" placeholder="Shipper Name" style="text-transform: inherit;"  required="">
+                                        </div>
+
+                                        <div class="mb-3">
+                                        <input type="text"  formControlName="ShipperAddress" placeholder="Shipper Address"  class="form-control" required="">
+                                          </div>
+                                        <div class="mb-3">
+
+                                          <input type="text"  class="form-control" formControlName="ShipperPhone" placeholder="Shipper Phone" style="text-transform: inherit;"  required="">
+
+                                        </div>
+
+                                        <div class="mb-3">
+                                          <input type="text"  formControlName="RecieverName" placeholder="Reciever Name" class="form-control" required="">
+                                        </div>
+                                       <div class="mb-3">
+
+                                          <input type="text"  class="form-control" formControlName="ReceiverAddress" placeholder="Receiver Address" style="text-transform: inherit;"  required="">
+
+                                        </div>
+                                        <div class="mb-3">
+                                          <input type="text" formControlName="ReceiverPhone" placeholder="Receiver Phone"  required="" class="form-control">
+                                        </div>
+                                          </div>
+                                          <div class="row">
+                                            <div class="mb-3 col-xl-6">
+                                              <button class="form-control btn btn-primary" type="button" (click)="submit()">
+                                                <div *ngIf="showspinner;else other"><app-spinner></app-spinner></div>
+                                                <ng-template #other>  Create</ng-template> </button>
+                                                </div>
+
+                                                <div class="mb-3 col-xl-6">
+                                                      <button class="form-control btn btn-warning" type="button" (click)="Update()">
+                                              Update
+                                                </button>
+                                                </div>
+                                          </div>
+
+
+
+
+
+
+                                      </div>
+                                        </form>
+                                      </div>
+
+
+
+
+
+
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                </div>
+                <!-- container-fluid -->
+
+            </div>
+            <!-- content -->
+
+            <!-- Footer Start -->
+            <app-dashboard-footer></app-dashboard-footer>
+            <!-- end Footer -->
+
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Page content -->
+        <!-- ============================================================== -->
+
+
+    </div>
+    <!-- END wrapper -->
+
+    <!-- Vendor -->
+
+
+
+

@@ -7,6 +7,7 @@ import { environment } from 'src/environments/environment';
 })
 export class ApiServiceService {
   env = environment.apiURL;//get our environment variables
+
   geturl = `${this.env}/geocode`;
   getdata = `${this.env}/mapping/mapping`;
   shippingorder = `${this.env}/shipping/createshipping`;
@@ -14,15 +15,37 @@ export class ApiServiceService {
   viewmap = `${this.env}/shipping/viewmap`;
   sendcontact = `${this.env}/contactUsEmail/contactUsEmail`;
   updatetrackcode = `${this.env}/shipping/updatetrackingstatus`;
+  signinUser = `${this.env}/auth/login`;
+  signUpUser = `${this.env}/auth/signup`;
+  userInfo = `${this.env}/auth/user-info`;
+  subscriptionInfo = `${this.env}/subscription/subscription`;
+
   constructor(private _http: HttpClient) { }
 
   postData(data: any): Observable<any> {
     return this._http.post(`${this.getdata}`, data);
   }
 
+   signIn(data : any):Observable<any> {
+    console.log('data',data)
+    return this._http.post(`${this.signinUser}`,data,{withCredentials : true})
+   }
+
+   signUp(data : any):Observable<any> {
+    console.log('data',data)
+    return this._http.post(`${this.signUpUser}`,data)
+   }
   getGeocoding(): Observable<any> {
     return this._http.get(`${this.geturl}`);
 
+  }
+
+  getUserInfo() : Observable<any> {
+    return this._http.get(`${this.userInfo}`);
+  }
+
+  getAccountSubscriptionInfo() : Observable<any> {
+    return this._http.get(`${this.subscriptionInfo}`);
   }
   contactEmail(data: any): Observable<any> {
     return this._http.post(`${this.sendcontact}`, data);
