@@ -12,7 +12,7 @@ const connection = require('./controller/Auth');
 const cookieParser = require('cookie-parser');
 const SubscriptionPackage = require('./routes/Subscription');
 
-const User = require('./routes/user');
+const User = require("./routes/User");
 connection();//database;
 
 app.use(cookieParser());  // ✅ Parse cookies first
