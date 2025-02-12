@@ -18,7 +18,7 @@ connection();//database;
 app.use(cookieParser());  // ✅ Parse cookies first
 app.use(express.json());  // ✅ Parse JSON requests
 app.use(cors({
-    origin: 'http://localhost:4200',
+    origin: process.env.FRONTEND_PROD_URL,
     credentials: true,
     allowedHeaders: ['Content-Type', 'Authorization', 'Set-Cookie'],  // ✅ Allow Set-Cookie
     exposedHeaders: ['Set-Cookie'],  // ✅ Ensure Set-Cookie is readable

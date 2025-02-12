@@ -34,6 +34,7 @@ import { AuthenticationInterceptor } from './authentication.interceptor';
 import { SignupComponent } from './signup/signup.component';
 import { DatePipe, TitleCasePipe } from '@angular/common';
 import { AccountProfileComponent } from './account-profile/account-profile.component';
+import { AdminUpdateTrackingComponent } from './admin-update-tracking/admin-update-tracking.component';
 
 
 
@@ -63,7 +64,8 @@ import { AccountProfileComponent } from './account-profile/account-profile.compo
     CreateSubscriptionComponent,
     AuthLoginComponent,
     SignupComponent,
-    AccountProfileComponent
+    AccountProfileComponent,
+    AdminUpdateTrackingComponent
   ],
   imports: [
 

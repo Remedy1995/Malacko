@@ -194,4 +194,8 @@ const LoginUser = async (req, res) => {
 }
 
 
+exports.logout = (req,res,next)=> {
+req.cookie
+}
+
 module.exports = { LoginUser, createNewUser, createNewCustomer, userInformation };

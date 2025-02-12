@@ -16,6 +16,7 @@ import { CreateSubscriptionComponent } from './create-subscription/create-subscr
 import { AuthLoginComponent } from './auth-login/auth-login.component';
 import { SignupComponent } from './signup/signup.component';
 import { AccountProfileComponent } from './account-profile/account-profile.component';
+import { AdminUpdateTrackingComponent } from './admin-update-tracking/admin-update-tracking.component';
 
 const routes: Routes = [
   {path:'',component:HomeComponent},
@@ -30,6 +31,7 @@ const routes: Routes = [
   {path:'update-tracking',component:UpdateTrackingComponent},
   {path:'dashboard',component : DashboardComponent},
   {path:'create-admin-tracking-order',component :AdminCreateTrackingOrderComponent},
+  {path:'update-admin-tracking-order',component :AdminUpdateTrackingComponent},
   {path : 'create-subscription',component : CreateSubscriptionComponent},
   {path:'auth-login',component : AuthLoginComponent},
   {path : 'auth-signup',component : SignupComponent},
