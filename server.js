@@ -35,10 +35,10 @@ app.use((req, res, next) => {
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname + '/public/dist/malacko')));
-// app.get('/*', function (req, res) {
-//   res.sendFile(path.join(__dirname +
-//     '/public/dist/malacko/index.html'));
-// });
+app.get('/*', function (req, res) {
+  res.sendFile(path.join(__dirname +
+    '/public/dist/malacko/index.html'));
+});
 app.use('/shipping', shipping);
 app.use('/mapping', mapping);
 app.use('/auth',User);
