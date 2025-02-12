@@ -177,7 +177,7 @@ const LoginUser = async (req, res) => {
       httpOnly: true,
       secure: true,  // HTTPS only in production
       maxAge: 3600000,
-      sameSite: 'Lax',  // Allows cross-origin cookies
+      // sameSite: 'None',  // Allows cross-origin cookies
       path: '/'
     });
 
