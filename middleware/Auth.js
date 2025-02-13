@@ -13,7 +13,7 @@ exports.AuthenticateToken = (req, res, next) => {
             message: 'Sorry token is not available'
         })
     }
-
+          
     jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
         console.log('This is the error',err)
         if (err) {
