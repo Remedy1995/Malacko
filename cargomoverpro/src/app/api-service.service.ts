@@ -41,17 +41,17 @@ export class ApiServiceService {
   }
 
   getUserInfo() : Observable<any> {
-    return this._http.get(`${this.userInfo}`);
+    return this._http.get(`${this.userInfo}`,{withCredentials : true});
   }
 
   getAccountSubscriptionInfo() : Observable<any> {
-    return this._http.get(`${this.subscriptionInfo}`);
+    return this._http.get(`${this.subscriptionInfo}`,{withCredentials : true});
   }
   contactEmail(data: any): Observable<any> {
-    return this._http.post(`${this.sendcontact}`, data);
+    return this._http.post(`${this.sendcontact}`, data,{withCredentials : true});
   }
   createShipping(data: any): Observable<any> {
-    return this._http.post(`${this.shippingorder}`, data)
+    return this._http.post(`${this.shippingorder}`, data,{withCredentials : true})
   }
   updateTracking(data: any): Observable<any> {
     return this._http.post(`${this.updatetrackcode}`, data)
